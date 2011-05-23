@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  rating: 1
+  wildness: 1
+  management: 1
+  review_text: MyString
+  contact_details: MyString
+  review_value: 1
+
+two:
+  rating: 1
+  wildness: 1
+  management: 1
+  review_text: MyString
+  contact_details: MyString
+  review_value: 1
