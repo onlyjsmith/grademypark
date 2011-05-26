@@ -1,0 +1,6 @@
+<% @reviews.each do |review| %>
+	<div>
+		<%= link_to review.id, review %>
+		<%= review.review_text %>
+	</div>
+<% end %>
