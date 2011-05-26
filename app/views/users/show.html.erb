@@ -1,26 +1,30 @@
 <p id="notice"><%= notice %></p>
 
+<h2>All of <%= @user.username %>'s reviews</h2>
+<p>
+  <b>Reviews:</b>
+	<!-- <p><%= @user.reviews.count %></p> -->
+	<% @user.reviews.each do |review| %>
+		<p><%= link_to review.place.name, review_path(review) %>
+			<%= "*" * review.rating %>(<%= review.rating %>)</p>
+	<% end  %>
+</p>
+<br/>
+<h3>User details</h3>
 <p>
   <b>Username:</b>
   <%= @user.username %>
-</p>
 
-<p>
   <b>Email:</b>
   <%= @user.email %>
 </p>
 
 
-<p>
-  <b>Reviews:</b>
-	<!-- <p><%= @user.reviews.count %></p> -->
-	<% @user.reviews.each do |review| %>
-		<p><%= link_to review.place.name, review_path(review) %></p>
-	<% end  %>
-</p>
 
 
+
+<!-- 
 
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<%= link_to 'Back', users_path %> -->
