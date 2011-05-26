@@ -13,8 +13,9 @@
 
 <p>
   <b>Reviews:</b>
+	<!-- <p><%= @user.reviews.count %></p> -->
 	<% @user.reviews.each do |review| %>
-		<p><%= link_to review.place.name, place_path(review.place) %></p>
+		<p><%= link_to review.place.name, review_path(review) %></p>
 	<% end  %>
 </p>
 

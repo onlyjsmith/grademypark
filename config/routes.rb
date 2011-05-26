@@ -4,7 +4,9 @@ Ratemypark::Application.routes.draw do
   resources :places
 
   resources :users
-
+  
+  match 'places/:id/all_reviews' => 'places#all_reviews'
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -36,6 +38,10 @@ Ratemypark::Application.routes.draw do
   #     resources :comments, :sales
   #     resource :seller
   #   end
+  
+  # resources :places do
+  #   resources :reviews
+  # end
 
   # Sample resource route with more complex sub-resources
   #   resources :products do

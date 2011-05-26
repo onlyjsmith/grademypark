@@ -80,4 +80,8 @@ class PlacesController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+  def all_reviews
+    @reviews = Review.find_all_by_place_id(params[:id])    
+  end
 end

@@ -1,8 +1,8 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>User_id:</b>
-  <%= @review.user_id %>
+  <b><%= link_to "User_id", user_path(@review.user_id) %></b>
+	<%= link_to @review.user_id, user_path(@review.user_id) %>
 </p>
 
 <p>

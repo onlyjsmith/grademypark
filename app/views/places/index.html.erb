@@ -1,9 +1,9 @@
-<h1>Listing places</h1>
-
+<h2>These are places with Reviews</h2>
+<p>Click on a place to view its reviews</p>
 <table>
   <tr>
     <th>Name</th>
-    <th>Wdpa</th>
+    <!-- <th>Wdpa</th> -->
     <th>Reviews</th>
     <th></th>
     <th></th>
@@ -12,12 +12,14 @@
 
 <% @places.each do |place| %>
   <tr>
-    <td><%= place.name %></td>
+	<td><%= link_to place.name, "/places/#{place.id}/all_reviews" %></td>
+	<td><%= place.reviews.count %></td>
+    <!-- <td><%= place.name %></td>
     <td><%= place.wdpa_id %></td>
-    <td><%= link_to 'All reviews', reviews_path %></td>
+	<td><%= link_to 'Reviews', "/places/#{place.id}/all_reviews" %></td>
     <td><%= link_to 'Show', place %></td>
     <td><%= link_to 'Edit', edit_place_path(place) %></td>
-    <td><%= link_to 'Destroy', place, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Destroy', place, :confirm => 'Are you sure?', :method => :delete %></td> -->
   </tr>
 <% end %>
 </table>
