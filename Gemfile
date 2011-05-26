@@ -9,8 +9,8 @@ gem 'sqlite3'
 gem 'rake', '~> 0.8.7'
 
 # Debugging
-gem 'awesome_print'
-
+# gem 'awesome_print'
+gem 'irbtools-more'
 # Use unicorn as the web server
 # gem 'unicorn'
 
