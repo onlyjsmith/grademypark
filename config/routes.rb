@@ -1,4 +1,4 @@
-Ratemypark2::Application.routes.draw do
+Ratemypark::Application.routes.draw do
   resources :reviews
 
   resources :places

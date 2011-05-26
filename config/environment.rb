@@ -2,4 +2,4 @@
 require File.expand_path('../application', __FILE__)
 
 # Initialize the rails application
-Ratemypark2::Application.initialize!
+Ratemypark::Application.initialize!

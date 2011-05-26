@@ -1,4 +1,4 @@
-Ratemypark2::Application.configure do
+Ratemypark::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
   # In the development environment your application's code is reloaded on
