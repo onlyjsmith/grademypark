@@ -1,30 +1,22 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b><%= link_to "User_id", user_path(@review.user_id) %></b>
-	<%= link_to @review.user_id, user_path(@review.user_id) %>
-</p>
 
-<p>
+<!-- <p>
   <b>Place_id:</b>
   <%= @review.place_id %>
-</p>
-
-<p>
-  <b>Rating:</b>
-  <%= @review.rating %>
-</p>
-
-<p>
-  <b>Wildness:</b>
-  <%= @review.wildness %>
-</p>
-
-<p>
-  <b>Management:</b>
-  <%= @review.management %>
-</p>
-
+</p> -->
+<table border = "1" width = '50%'>
+<tr>
+	<td><b>Rating:</b></td>
+	<td><b>Wildness:</b></td>
+	<td><b>Management:</b></td>
+</tr>
+<tr>
+	<td><%= "*" * @review.rating %> (<%= @review.rating %>)</td>
+  	<td><%= "*" * @review.wildness %>(<%= @review.wildness %>)</td>
+  	<td><%= "*" * @review.management %>(<%= @review.management %>)</td>
+</tr>
+</table>
 <p>
   <b>Review text:</b>
   <%= @review.review_text %>
@@ -35,8 +27,15 @@
   <%= @review.contact_details %>
 </p>
 
+<p> <em>Review by
+  <%= link_to @review.user.username, user_path(@review.user_id) %></em>
+	<!-- <%= link_to @review.user_id, user_path(@review.user_id) %> -->
+</p>
+
+
+
 <p>
-  <b>Review value:</b>
+  <em>Review value:</em>
   <%= @review.review_value %>
 </p>
 
