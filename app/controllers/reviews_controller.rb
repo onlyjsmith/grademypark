@@ -75,7 +75,7 @@ class ReviewsController < ApplicationController
         place.review_count += 1
         place.save
         place.total_rating += @review.rating
-        place.avg_rating = Place.total_rating / Place.review_count
+        place.avg_rating = place.total_rating / place.review_count
         
         format.html { redirect_to(@review, :notice => 'Review was successfully created.') }
         format.xml  { render :xml => @review, :status => :created, :location => @review }
