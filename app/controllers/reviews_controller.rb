@@ -41,6 +41,8 @@ class ReviewsController < ApplicationController
     
     if Place.find_by_wdpa_id(params[:id]).nil?
       then Place.create(:wdpa_id => (params[:id]), :name => Place.find_name_from_id(params[:id]), :review_count => 1)
+      Place.update_total_rating
+      Place.update_avg_rating
     end
     place = Place.find_by_wdpa_id(params[:id])
     
