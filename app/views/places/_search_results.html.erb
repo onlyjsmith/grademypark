@@ -1,0 +1,5 @@
+<% @results.each do |result| %>
+	<p><%= link_to "New review for #{result[1]}", "/reviews/new/#{result[0]}" %></p>
+<% end %>
+
+<p>Or did you mean .... ?</p>

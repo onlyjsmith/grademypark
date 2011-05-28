@@ -22,10 +22,10 @@
   <%= @review.review_text %>
 </p>
 
-<p>
+<!-- <p>
   <b>Contact details:</b>
   <%= @review.contact_details %>
-</p>
+</p> -->
 
 <p> <em>Review by
   <%= link_to @review.user.username, user_path(@review.user_id) %></em>
@@ -34,11 +34,12 @@
 
 
 
-<p>
+<!-- <p>
   <em>Review value:</em>
   <%= @review.review_value %>
-</p>
+</p> -->
 
+<%= link_to 'Go back to list of reviews', "/places/#{@review.place.id}/all_reviews" %>
 
-<%= link_to 'Edit', edit_review_path(@review) %> |
-<%= link_to 'Back', reviews_path %>
+<!-- <%= link_to 'Edit', edit_review_path(@review) %> |
+<%= link_to 'Back', reviews_path %> -->

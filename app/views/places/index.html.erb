@@ -1,4 +1,4 @@
-<h2>These are places with Reviews</h2>
+<h2>These are the most reviewed places</h2>
 <p>Click on a place to view its reviews</p>
 <table>
   <tr>
@@ -11,7 +11,7 @@
   </tr>
 
 <% @places.each do |place| %>
-  <tr>
+<tr>
 	<td><%= link_to place.name, "/places/#{place.id}/all_reviews" %></td>
 	<td><%= place.reviews.count %></td>
     <!-- <td><%= place.name %></td>
@@ -24,6 +24,12 @@
   </tr>
 <% end %>
 </table>
+
+<h2>Search Sites</h2>
+
+<div id="search">
+  <%= render :partial => 'places/search' %>
+</div>
 
 <br/><%= link_to "Add new review!", new_review_path %>
 </br/>

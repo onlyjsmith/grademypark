@@ -24,8 +24,26 @@ class ReviewsController < ApplicationController
   # GET /reviews/new
   # GET /reviews/new.xml
   def new
+    logger.info("PARAMS: #{params.inspect}")
     @review = Review.new
+    @review.user_id = 1
+    
+    respond_to do |format|
+      format.html # new.html.erb
+      format.xml  { render :xml => @review }
+    end
+  end
+  
+  def new_from_search
+    logger.info("PARAMS: #{params.inspect}")
+    @review = Review.new
+    @review.user_id = 1
+    
+    place = Place.find_or_create_by_wdpa_id(params[:id], :name => Place.find_name_from_id(params[:id]))
 
+    @review.place_id = place.id
+    
+    
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @review }

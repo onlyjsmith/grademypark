@@ -10,13 +10,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110523200524) do
+ActiveRecord::Schema.define(:version => 20110528211253) do
 
   create_table "places", :force => true do |t|
     t.string   "name"
     t.integer  "wdpa_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "review_count"
   end
 
   create_table "reviews", :force => true do |t|

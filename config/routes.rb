@@ -6,6 +6,8 @@ Ratemypark::Application.routes.draw do
   resources :users
   
   match 'places/:id/all_reviews' => 'places#all_reviews'
+  match 'places/search' => 'places#search'
+  match 'reviews/new/:id' => 'reviews#new_from_search'
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -2,8 +2,8 @@ class PlacesController < ApplicationController
   # GET /places
   # GET /places.xml
   def index
-    @places = Place.all
-
+    # @places = Place.all
+    @places = Place.most_reviewed
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @places }
@@ -82,6 +82,15 @@ class PlacesController < ApplicationController
   end
   
   def all_reviews
-    @reviews = Review.find_all_by_place_id(params[:id])    
+    @reviews = Review.find_all_by_place_id(params[:id])
+    # debugger    
   end
+  
+  def search
+    # @results = ["Search results", "All in here"]
+    @results = Place.search(params[:search])
+    render '_search_results' 
+  end
+  
+
 end
