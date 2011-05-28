@@ -21,21 +21,46 @@ class Place < ActiveRecord::Base
     result = Place.get("http://protectedplanet.net/api2/sites/#{id}")['official']['NAME']
   end
   
-  #This doesn't do anything logical!
-  def self.highest_rated(limit)
-    places = []
-    Review.find(:all, :limit => limit, :order => "wildness DESC").each do |review|
-      places << review.place
+
+  def self.update_total_rating
+    Place.all.each do |place|
+      total = 0
+      place.reviews.all.each do |review|
+        total += review.rating 
+      end
+      place.total_rating = total
+      place.save
     end
-    places
+  end
+    
+  def self.update_review_count
+    Place.all.each do |place|
+      place.review_count = place.reviews.count 
+      place.save
+    end
   end
   
-  def calculate_avg_ratings
-      # Add field to model, and calculate average scores based on reviews!  
+  def self.update_avg_rating
+    Place.all.each do |place|
+      place.avg_rating = place.total_rating / place.review_count
+      place.save
+    end
   end
+  
+  def self.highest_reviewed(limit)
+    Place.find(:all, :limit => limit, :order => 'avg_rating DESC')
+  end
+  
   
   def self.most_reviewed
-    Place.find(:all, :limit => 10, :order => 'review_count DESC')
+    Place.find(:all, :order => 'review_count DESC')
+  end
+  
+  def self.remove_place(place_id)
+    Review.find_all_by_place_id(place_id).each do |review|
+      review.destroy
+    end
+    Place.find(place_id).destroy
   end
   
 end

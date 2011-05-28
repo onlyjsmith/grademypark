@@ -4,6 +4,8 @@ class PlacesController < ApplicationController
   def index
     # @places = Place.all
     @places = Place.most_reviewed
+    @places = Place.highest_reviewed(10)
+    
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @places }
@@ -82,7 +84,8 @@ class PlacesController < ApplicationController
   end
   
   def all_reviews
-    @reviews = Review.find_all_by_place_id(params[:id])
+    @reviews = Place.find_by_wdpa_id(params[:id]).reviews
+    # @reviews = Review.find_all_by_place_wdpa_id(params[:id])
     # debugger    
   end
   

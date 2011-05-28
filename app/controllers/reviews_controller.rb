@@ -39,8 +39,15 @@ class ReviewsController < ApplicationController
     @review = Review.new
     @review.user_id = 1
     
-    place = Place.find_or_create_by_wdpa_id(params[:id], :name => Place.find_name_from_id(params[:id]))
-
+    if Place.find_by_wdpa_id(params[:id]).nil?
+      then Place.create(:wdpa_id => (params[:id]), :name => Place.find_name_from_id(params[:id]), :review_count => 1)
+    end
+    place = Place.find_by_wdpa_id(params[:id])
+    
+    
+    # place = Place.find_or_create_by_wdpa_id(params[:id]) {|u| u.name = Place.find_name_from_id(params[:id]), u.review_count = 1}
+    
+    
     @review.place_id = place.id
     
     
@@ -62,6 +69,10 @@ class ReviewsController < ApplicationController
 
     respond_to do |format|
       if @review.save
+        place = @review.place
+        place.review_count += 1
+        place.save
+        
         format.html { redirect_to(@review, :notice => 'Review was successfully created.') }
         format.xml  { render :xml => @review, :status => :created, :location => @review }
       else

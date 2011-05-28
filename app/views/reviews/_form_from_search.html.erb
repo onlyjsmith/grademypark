@@ -10,19 +10,7 @@
       </ul>
     </div>
   <% end %>
-<table>
-<tr>
-	<td><b>Overall rating 1-5 stars</b></td>
-	<td><b>Wildness 1-5 stars</b></td>
-	<td><b>Management 1-5 stars</b></td>
-</tr>
-<tr>
-	<td><%= f.text_field :rating %></td>
-  	<td><%= f.text_field :wildness %></td>
-  	<td><%= f.text_field :management %></td>
-</tr>
-</table>
-<br/>
+
 
 <!-- 
   <div class="field">
@@ -41,6 +29,20 @@
     <%= f.label "Your review" %><br />
 	<%= f.text_area :review_text %>
   </div>
+
+<table>
+<tr>
+	<td><b>Overall rating 1-5 stars</b></td>
+	<td><b>Wildness 1-5 stars</b></td>
+	<td><b>Management 1-5 stars</b></td>
+</tr>
+<tr>
+	<td><%= f.text_field :rating %></td>
+  	<td><%= f.text_field :wildness %></td>
+  	<td><%= f.text_field :management %></td>
+</tr>
+</table>
+<br/>
   <!-- <div class="field">
     <%= f.label "Site contact details" %><br />
     <%= f.text_field :contact_details %>

@@ -4,7 +4,7 @@
   <tr>
     <th>Name</th>
     <!-- <th>Wdpa</th> -->
-    <th>Reviews</th>
+    <th>Average rating (reviews)</th>
     <th></th>
     <th></th>
     <th></th>
@@ -12,8 +12,8 @@
 
 <% @places.each do |place| %>
 <tr>
-	<td><%= link_to place.name, "/places/#{place.id}/all_reviews" %></td>
-	<td><%= place.reviews.count %></td>
+	<td><%= link_to place.name, "/places/#{place.wdpa_id}/all_reviews" %></td>
+	<td><%= "*" * place.avg_rating %><%= place.avg_rating %> (<%= place.review_count %>)</td>
     <!-- <td><%= place.name %></td>
     <td><%= place.wdpa_id %></td>
 	<td><%= link_to 'Reviews', "/places/#{place.id}/all_reviews" %></td>
