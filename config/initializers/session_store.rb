@@ -1,8 +1,8 @@
 # Be sure to restart your server when you modify this file.
 
-Ratemypark::Application.config.session_store :cookie_store, :key => '_ratemypark_session'
+Grademypark::Application.config.session_store :cookie_store, :key => '_grademypark_session'
 
 # Use the database for sessions instead of the cookie-based default,
 # which shouldn't be used to store highly confidential information
 # (create the session table with "rails generate session_migration")
-# Ratemypark::Application.config.session_store :active_record_store
+# Grademypark::Application.config.session_store :active_record_store
