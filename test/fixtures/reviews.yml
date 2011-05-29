@@ -7,6 +7,9 @@ one:
   review_text: MyString
   contact_details: MyString
   review_value: 1
+  avg_rating: 1
+  total_rating: 1
+  place_id: 1
 
 two:
   rating: 1
@@ -15,3 +18,6 @@ two:
   review_text: MyString
   contact_details: MyString
   review_value: 1
+  avg_rating: 1
+  total_rating: 1  
+  place_id: 2

@@ -3,7 +3,8 @@ class ReviewsController < ApplicationController
   # GET /reviews.xml
   def index
     @reviews = Review.all
-
+    Place.update_total_rating
+    Place.update_avg_rating
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @reviews }
@@ -40,9 +41,9 @@ class ReviewsController < ApplicationController
     @review.user_id = 1
     
     if Place.find_by_wdpa_id(params[:id]).nil?
-      then Place.create(:wdpa_id => (params[:id]), :name => Place.find_name_from_id(params[:id]), :review_count => 1)
-      Place.update_total_rating
-      Place.update_avg_rating
+      then Place.create(:wdpa_id => (params[:id]), :name => Place.find_name_from_id(params[:id]), :review_count => 1, :total_rating => 1, :avg_rating => 1)
+      # Place.update_total_rating
+      # Place.update_avg_rating
     end
     place = Place.find_by_wdpa_id(params[:id])
     
@@ -72,10 +73,10 @@ class ReviewsController < ApplicationController
     respond_to do |format|
       if @review.save
         place = @review.place
-        place.review_count += 1
-        place.save
+        place.review_count = places.reviews.count
         place.total_rating += @review.rating
         place.avg_rating = place.total_rating / place.review_count
+        place.save
         
         format.html { redirect_to(@review, :notice => 'Review was successfully created.') }
         format.xml  { render :xml => @review, :status => :created, :location => @review }
