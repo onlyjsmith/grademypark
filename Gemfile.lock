@@ -50,7 +50,6 @@ GEM
       wirb (>= 0.2.4)
     g (1.4.0)
       ruby-growl (>= 1.0.1)
-    geokit (1.6.0)
     hirb (0.4.5)
     httparty (0.7.7)
       crack (= 0.1.8)
@@ -107,7 +106,6 @@ GEM
       rake (>= 0.8.7)
       thor (~> 0.14.4)
     rake (0.8.7)
-    rgeo (0.3.1)
     ruby-debug-base19 (0.11.25)
       columnize (>= 0.3.1)
       linecache19 (>= 0.5.11)
@@ -135,10 +133,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  geokit
   httparty
   irbtools-more
   rails (= 3.0.7)
-  rgeo
   ruby-debug19
   sqlite3
