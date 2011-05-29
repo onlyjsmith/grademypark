@@ -32,7 +32,33 @@ class Place < ActiveRecord::Base
       place.save
     end
   end
-    
+
+  def self.get_boundary(wdpa_id)
+    data = Place.get("http://protectedplanet.net/api2/sites/#{wdpa_id}")['official']['GEOM']
+  end
+  
+  # def self.get_kml(wdpa_id)
+  #   data = Place.get("http://protectedplanet.net/api2/sites/#{wdpa_id}")['official']['GEOM']
+  #   trim = data
+  #   # trim = data[10..-1]
+  #   parser = RGeo::WKRep::WKTParser.new(:support_ewkt => :true)
+  #   parser.parse(trim)
+  # end
+  
+  
+  def self.decode(wdpa_id)
+    @data = Place.get("http://protectedplanet.net/api2/sites/#{wdpa_id}")['official']['GEOM']
+    array = @data.slice(25..-4).split(",")
+    poly_string = ""
+    first_set = array.first.split(" ")
+    poly_centre = first_set[1]+","+first_set[0]
+    array.each do |pair|
+      values = pair.split(' ')
+      poly_string += "new google.maps.LatLng(" + values[1] +"," + values[0] + ")," 
+    end
+    output = [poly_string[0..-2], poly_centre]
+  end
+      
   def self.update_review_count
     Place.all.each do |place|
       place.review_count = place.reviews.count 

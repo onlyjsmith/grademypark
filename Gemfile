@@ -8,10 +8,15 @@ gem 'rails', '3.0.7'
 gem 'sqlite3'
 # gem 'rake', '~> 0.8.7'
 gem 'httparty'
+# gem 'GeoRuby'
+# gem 'ppe-georuby'
+# gem 'geokit-rails3'
+# gem 'geokit'
+# gem 'geo_ruby'
+# gem 'rgeo'
+
 
 # Debugging
-# gem 'awesome_print'
-# gem 'irbtools-more'
 # Use unicorn as the web server
 # gem 'unicorn'
 
@@ -20,7 +25,7 @@ gem 'httparty'
 
 # To use debugger (ruby-debug for Ruby 1.8.7+, ruby-debug19 for Ruby 1.9.2+)
 # gem 'ruby-debug'
-# gem 'ruby-debug19', :require => 'ruby-debug'
+gem 'ruby-debug19', :require => 'ruby-debug'
 
 # Bundle the extra gems:
 # gem 'bj'
@@ -33,4 +38,5 @@ gem 'httparty'
 # and rake tasks are available in development mode:
 # group :development, :test do
 #   gem 'webrat'
+	gem 'irbtools-more'
 # end

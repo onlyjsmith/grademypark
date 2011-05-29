@@ -73,7 +73,7 @@ class ReviewsController < ApplicationController
     respond_to do |format|
       if @review.save
         place = @review.place
-        place.review_count = places.reviews.count
+        place.review_count = place.reviews.count
         place.total_rating += @review.rating
         place.avg_rating = place.total_rating / place.review_count
         place.save
@@ -81,7 +81,7 @@ class ReviewsController < ApplicationController
         format.html { redirect_to(@review, :notice => 'Review was successfully created.') }
         format.xml  { render :xml => @review, :status => :created, :location => @review }
       else
-        format.html { render :action => "new" }
+        format.html { render :action => "new_from_search" }
         format.xml  { render :xml => @review.errors, :status => :unprocessable_entity }
       end
     end
