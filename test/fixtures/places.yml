@@ -3,7 +3,11 @@
 one:
   name: MyString
   wdpa_id: 1
+  avg_rating: 1
+  total_rating: 1
 
 two:
   name: MyString
-  wdpa_id: 1
+  wdpa_id: 2
+  avg_rating: 1
+  total_rating: 1
