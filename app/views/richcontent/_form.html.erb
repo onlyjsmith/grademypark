@@ -1,1 +1,14 @@
-<strong><p>Hello there</p></strong>
+
+<% form_for @richcontent do |f| -%>
+	<div class="field">
+	  <%= f.label "Content name" %><br />
+		<%= f.text_field :content_url %>
+	</div>
+	
+	<div class="field">
+		<%= f.label "URL to content" %><br />
+			<%= f.text_field :content_url %>
+	</div>
+<% end -%>
+
+

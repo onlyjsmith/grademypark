@@ -1,0 +1,11 @@
+<!-- TODO: Really not sure if this should be a partial... -->
+
+<div>
+	<%= @review.richcontents.count %> pieces of rich content associated with this review
+</div>
+
+<% @review.richcontents.each do |piece| %>
+	<div>
+		<em><%= piece.content_name %></em> [<%= link_to 'Link', "http://#{piece.content_url}" %>]
+	</div>
+<% end %>
