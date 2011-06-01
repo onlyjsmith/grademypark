@@ -1,0 +1,2 @@
+class RichcontentController < ApplicationController
+end

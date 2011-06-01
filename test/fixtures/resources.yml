@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  review_id: 1
+  resource_name: MyString
+  resource_url: MyString
+
+two:
+  review_id: 1
+  resource_name: MyString
+  resource_url: MyString
