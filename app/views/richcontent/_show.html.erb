@@ -1,7 +1,7 @@
 <!-- TODO: Really not sure if this should be a partial... -->
 
 <div>
-	<%= @review.richcontents.count %> pieces of rich content associated with this review
+	<%= pluralize(@review.richcontents.count, "piece") %> of rich content associated with this review
 </div>
 
 <% @review.richcontents.each do |piece| %>

@@ -1,46 +1,46 @@
-<div class="grid_4 chunkybox">
-	<h2>Most highly reviewed places</h2>
-	<p>(Number of reviews in brackets)</p>
-	<!-- <p>Click on a place to view its reviews</p> -->
-	<table>
-	  <!-- <tr>
-	    <th>Name</th>
-	    <th>Wdpa</th>
-	    <th>Average rating (reviews)</th>
-	    <th></th>
-	    <th></th>
-	    <th></th>
-	  </tr> -->
+<div class="grid_6">
+	<div class="chunkybox">
+		<h2>Most highly reviewed places</h2>
+		<p >(Number of reviews in brackets)</p>
 
-	<% @places.each do |place| %>
-	<tr>
-		<td><%= link_to place.name, "/places/#{place.wdpa_id}/all_reviews" %></td>
-		<td><%= "*" * place.avg_rating %><%= place.avg_rating %> (<%= place.review_count %>)</td>
-	    <!-- <td><%= place.name %></td>
-	    <td><%= place.wdpa_id %></td>
-		<td><%= link_to 'Reviews', "/places/#{place.id}/all_reviews" %></td>
-	    <td><%= link_to 'Show', place %></td>
-	    <td><%= link_to 'Edit', edit_place_path(place) %></td>
-	    <td><%= link_to 'Destroy', place, :confirm => 'Are you sure?', :method => :delete %></td> -->
+		<table>
+			<% @places.each do |place| %>
+			<tr>
+				<td><%= link_to place.name, "/places/#{place.wdpa_id}/all_reviews" %></td>
+				<td><%= "*" * place.avg_rating %><%= place.avg_rating %> (<%= place.review_count %>)</td>
+			    <!-- <td><%= place.name %></td>
+			    <td><%= place.wdpa_id %></td>
+				<td><%= link_to 'Reviews', "/places/#{place.id}/all_reviews" %></td>
+			    <td><%= link_to 'Show', place %></td>
+			    <td><%= link_to 'Edit', edit_place_path(place) %></td>
+			    <td><%= link_to 'Destroy', place, :confirm => 'Are you sure?', :method => :delete %></td> -->
 
-	  </tr>
-	<% end %>
-	</table>
-	<br/>
-	<h2>Search sites to add a new review</h2>
+			  </tr>
+			<% end %>  
+		</table>
+		<br/>   
 
-	<div id="search">
-	  <%= render :partial => 'places/search' %>
+	</div>    		
+	<div class="chunkybox">
+			<h2>Search sites to add a new review</h2>
+
+			<div id="search">
+			  <%= render :partial => 'places/search' %>
+			</div>
+
+			<!-- <br/><%= link_to "Add new review!", new_review_path %> -->
+			</br/>
+			<!-- <%= link_to 'New Place', new_place_path %> -->
 	</div>
 
-	<!-- <br/><%= link_to "Add new review!", new_review_path %> -->
-	</br/>
-	<!-- <%= link_to 'New Place', new_place_path %> -->
 </div>
 
-<div class='grid_4 chunkybox'>
-	<h2>Most prolific reviewers</h2>
-<% @reviewers.each do |reviewer| %>	
-	<div><%= reviewer.username %> - <%= reviewer.reviews.count %> reviews</div>
-<% end %>	
+<div class="grid_6">
+	<div class="chunkybox">
+		<h2>Most prolific reviewers</h2>
+		<% @reviewers.each do |reviewer| %>	
+			<div><%= link_to reviewer.username, user_path(reviewer.id) %> - <%= reviewer.reviews.count %> reviews</div>
+		<% end %>	
+	</div>
 </div>
+

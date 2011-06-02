@@ -5,7 +5,7 @@ Grademypark::Application.routes.draw do
 
   resources :users
   
-  match 'places/:id/all_reviews' => 'places#all_reviews'
+  match 'places/:id/all_reviews' => 'places#all_reviews', :as => 'all_reviews'
   match 'places/search' => 'places#search'
   match 'reviews/new/:id' => 'reviews#new_from_search'
   

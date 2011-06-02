@@ -1,24 +1,27 @@
-<div class="grid_6">
-	<h2>Here are the reviews for <em><%= @reviews.first.place.name %></em></h2>
-	<% @reviews.each do |review| %>
-		<div>
-			<%= link_to review.review_text, review %>
-			<%= "*" * review.rating %>
-			(by <%= link_to review.user.username, user_path(review.user) %>)
-		</div>
-	<% end %>
-	<br/>
-	<%= link_to "Add new review for this site", "/reviews/new/#{@reviews.first.place.wdpa_id}" %><br/>
-	<%= link_to "Open in ProtectedPlanet", "http://protectedplanet.net/sites/#{@reviews.first.place.wdpa_id}" %>
+<div class="grid_6">  
+	<div class="chunkybox">
+		<h2>Here are the reviews for <em><%= @reviews.first.place.name %></em></h2>
+		<% @reviews.each do |review| %>
+			<div>
+				<%= link_to review.review_text, review %>
+				<%= "*" * review.rating %>
+				(by <%= link_to review.user.username, user_path(review.user) %>)
+			</div>
+		<% end %>
+		<br/>
+		<%= link_to "Add new review for this site", "/reviews/new/#{@reviews.first.place.wdpa_id}" %><br/>
+		<%= link_to "Open in ProtectedPlanet", "http://protectedplanet.net/sites/#{@reviews.first.place.wdpa_id}" %>
+	</div>
 </div>
 
 <div class="grid_6">
-	<h2>Here's a nifty map - might have to zoom!</h2>
+	<div class="chunkybox">
+		<h2>Here's a nifty map - might have to zoom!</h2>
 
-	<div id = 'map_canvas' >
+		<div id = 'map_canvas' >
 	
-	</div>
-
+		</div>
+    </div>
 	<script type="text/javascript">
 	function initialize() {
 	  // var myLatLng = new google.maps.LatLng(24.886436490787712, -70.2685546875);

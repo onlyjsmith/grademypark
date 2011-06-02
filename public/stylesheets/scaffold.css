@@ -1,4 +1,10 @@
-body { background-color: #fff; color: #333; }
+body { background-color: #576453; color: #333; }
+
+h2 { 
+	color: #576453;
+	padding-bottom: 20px; 
+/*	text-decoration: underline;*/
+}
 
 body, p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
@@ -14,7 +20,7 @@ pre {
 
 a { color: #000; }
 a:visited { color: #666; }
-a:hover { color: #fff; background-color:green; }
+a:hover { color: #fff;}
 
 div.field, div.actions {
   margin-bottom: 10px;
@@ -57,15 +63,16 @@ div.field, div.actions {
 
 h1 a:visited {
 /*	background: black;*/
-	color: green;
+	color: #dac2aa;
 	border-bottom: 1px solid #999;
 }
 
 h1 a:hover {
-	color: blue;
-}
+	color: white;
+}  
 
-#main {
+/*#main {
 	margin-top: 40px;
 	margin-left: 50px;
-}
+}*/
+

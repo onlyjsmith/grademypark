@@ -8,11 +8,15 @@
 	<%= csrf_meta_tag %>
 </head>
 <body onload="initialize()">
-<h1><%= link_to 'Grade My Park', root_path %></h1>
 
-	<div class="grid_12">
-		<%= yield %>
+<div class="container clearfix"> 
+<div class="grid_12">
+	<div class="boxtitle chunkybox">
+		<h1><%= link_to 'Grade My Park', root_path %></h1>
 	</div>
+</div>
 
+	<%= yield %>
+</div>
 </body>
 </html>

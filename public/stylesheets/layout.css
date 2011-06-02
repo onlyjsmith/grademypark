@@ -1,13 +1,22 @@
 #map_canvas {
 	border: 1px solid #999;
-	height: 300px;
-	width: 400px;
+	height: 400px;
+	width: 90%;    
+	
 /*	background: red;*/
 	}
 	
 .chunkybox {
 	border: 1px solid #999;
-/*	margin: 5px;*/
-	padding: 5px;
+	margin: 7px;
+	padding: 10px;
+/*	-moz-box-shadow: 3px 3px 4px #9c3919;
+	-webkit-box-shadow: 3px 3px 4px #9c3919;
+	box-shadow: 3px 3px 4px #9c3919;     */
+	background-color: #dac2aa;
 }
-	
+
+.boxtitle {
+	background: #d84a40;
+}
+	      
