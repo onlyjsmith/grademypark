@@ -1,32 +1,48 @@
 <div class="grid_6">  
 	<div class="chunkybox">
-		<h2>
-			<%= image_tag "icons/pile.png", :title => "pile" %>
-			Here are the reviews for <em><%= @reviews.first.place.name %></em>
-		</h2>
-		<% @reviews.each do |review| %>
-			<div>
-				<%= link_to review.review_text, review %>
-				<%= "*" * review.rating %>
-				(by <%= link_to review.user.username, user_path(review.user) %>)
-			</div>
-		<% end %>
+		<div class="boxheader">
+			<h2>
+				<%= image_tag "icons/pile.png", :title => "pile" %>
+				Here are the reviews for <em><%= @reviews.first.place.name %></em>
+			</h2>  
+		</div>
+
+		<div id="reviews_list">
+			<% @reviews.each do |review| %>
+				<div class='review'>
+					<%= link_to (image_tag "icons/single_sm.png", :title => "single_small"), review %>
+					<%= link_to review.review_text, review %>
+					<%= "*" * review.rating %>
+					(by <%= link_to review.user.username, user_path(review.user) %>)
+				</div>
+			<% end %>
+		</div>
+		
+		
 		<br/>
 		<em>
-			<%= image_tag "icons/plus_sm.png", :title => "add new" %>
-			<%= link_to "Add new review for this site", "/reviews/new/#{@reviews.first.place.wdpa_id}" %><br/>
+			<%= link_to (image_tag "icons/plus_sm.png", :title => "add new"), "/reviews/new/#{@reviews.first.place.wdpa_id}" %>
+			<%= link_to "Add new review for this site", "/reviews/new/#{@reviews.first.place.wdpa_id}" %>
+			<br/>
 		</em>
 		<em>
-			<%= image_tag "icons/open_sm.png", :title => "open" %>
+			<%= link_to (image_tag "icons/open_sm.png", :title => "open"), "http://protectedplanet.net/sites/#{@reviews.first.place.wdpa_id}" %>
 			<%= link_to "Open in ProtectedPlanet", "http://protectedplanet.net/sites/#{@reviews.first.place.wdpa_id}" %>
 		</em>
 	</div>
 
 	<div class="chunkybox">
-		<h2>
-			<%= image_tag "icons/pic.png", :title => "pic" %>
-			Content linked to this place
-		</h2>
+		<div class="boxheader">      		
+			<h2>
+				<%= image_tag "icons/pic.png", :title => "pic" %>
+				Content linked to this place
+			</h2> 
+		</div>		
+			<% @place.richcontents.each do |content| %>
+				<%= image_tag "icons/world_sm.png", :title => "small world - link" %>
+				<%= link_to content.content_name, "http://#{content.content_url}" %>
+				<!-- <%= content.content_name %> -->
+			<% end %>
 	</div>
 </div>
 

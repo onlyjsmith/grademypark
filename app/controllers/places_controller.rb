@@ -89,6 +89,7 @@ class PlacesController < ApplicationController
   end
   
   def all_reviews
+    @place = Place.find_by_wdpa_id(params[:id])
     @reviews = Place.find_by_wdpa_id(params[:id]).reviews
     wdpa_id = Place.find_by_wdpa_id(params[:id]).wdpa_id
     data = Place.decode(wdpa_id)

@@ -1,9 +1,9 @@
 <div class="grid_6">
 	<div class="chunkybox">
-		<h2>
-	   		<%= image_tag "icons/star_fill.png", :title => "star" %>
-			Highly reviewed places
-		</h2>
+		<div class='boxheader'>
+	   		<h2><%= image_tag "icons/star_fill.png", :title => "star" %>
+			Highly reviewed places</h2>
+		</div>
 		<table>
 			<% @places.each do |place| %>
 			<tr>

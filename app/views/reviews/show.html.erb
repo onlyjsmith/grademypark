@@ -37,7 +37,7 @@
 		  <%= link_to @review.user.username, user_path(@review.user_id) %></em>
 			<!-- <%= link_to @review.user_id, user_path(@review.user_id) %> -->
 		</p>
-
+		<%= link_to "Add new review for this site", "/reviews/new/#{@review.place.wdpa_id}" %><br/>
 		<%= link_to 'Back to list site reviews', "/places/#{@review.place.wdpa_id}/all_reviews" %>    
 	</div>
 

@@ -20,6 +20,20 @@
 	background: #d84a40;
 }
 	      
-#§search_field {
+#search_field {
 	font: 16px "Lucida Grande", "Trebuchet MS", Verdana, sans-serif;
+}
+
+.review {
+	font-size: 18px;
+}       
+
+.icon2 {
+	float:left;
+	margin: 10px;
+}
+
+#reviews_list {
+	margin-left: 15px;
+	margin-bottom: 30px;
 }
