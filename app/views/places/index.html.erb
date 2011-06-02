@@ -54,10 +54,18 @@
 		<h2>
 			<%= image_tag "icons/new.png", :title => "new" %>
 			Most recently updated reviews </h2> 
-		<% @recent_reviews.each	do |recent| %>
-			<div><%= link_to recent.place.name, review_path(recent.id) %>
-				<%= "*" * recent.rating %>
-		<% end %>
+
+			<table>
+				<% @recent_reviews.each do |review| %>
+				<tr>
+					<td><%= link_to review.place.name, review_path(review.id) %></td>
+					<td><%= "*" * review.rating%><%= review.rating %></td>
+
+				  </tr>
+				<% end %>  
+			</table>
+
+    -->
 	</div>
 </div>
 
