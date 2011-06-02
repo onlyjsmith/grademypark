@@ -1,7 +1,7 @@
 /*
  & Columns : 12 
  & Gutter %: 20% 
- & MinWidth: 960px
+ & MinWidth: 800px
  & MaxWidth: 1080px
  */
 .grid_1 { width: 6.6666666666667%; }
@@ -39,7 +39,7 @@
 .omega{margin-right:0px;}
 
 .container{
-	min-width: 960px; 
+	min-width: 800px; 
 	max-width: 1080px; 
 	margin: auto;
 }

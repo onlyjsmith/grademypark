@@ -1,4 +1,4 @@
-<div class="grid_6">
+<div class="grid_4 chunkybox">
 	<h2>Most highly reviewed places</h2>
 	<p>(Number of reviews in brackets)</p>
 	<!-- <p>Click on a place to view its reviews</p> -->
@@ -38,7 +38,7 @@
 	<!-- <%= link_to 'New Place', new_place_path %> -->
 </div>
 
-<div class='grid_6'>
+<div class='grid_4 chunkybox'>
 	<h2>Most prolific reviewers</h2>
 <% @reviewers.each do |reviewer| %>	
 	<div><%= reviewer.username %> - <%= reviewer.reviews.count %> reviews</div>
