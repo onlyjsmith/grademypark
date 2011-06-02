@@ -1,14 +1,14 @@
 body { background-color: #576453; color: #333; }
 
 h2 { 
-	color: #576453;
-	padding-bottom: 20px; 
+	color: white;
+	padding-bottom: 7px; 
 /*	text-decoration: underline;*/
 }
 
 body, p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
-  font-size:   13px;
+  font-size:   15px;
   line-height: 18px;
 }
 
@@ -61,14 +61,19 @@ div.field, div.actions {
   list-style: square;
 }
 
+h1 a {
+	text-decoration: none;
+}
 h1 a:visited {
 /*	background: black;*/
-	color: #dac2aa;
-	border-bottom: 1px solid #999;
+	color: white;   
+/*	border-bottom: 1px solid #999;   */  
+	text-decoration: none;
 }
 
 h1 a:hover {
-	color: white;
+	color: 	#dac2aa;
+	text-decoration: none;
 }  
 
 /*#main {

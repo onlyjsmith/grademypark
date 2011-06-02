@@ -1,8 +1,6 @@
 <div class="grid_6">
 	<div class="chunkybox">
-		<h2>Most highly reviewed places</h2>
-		<p >(Number of reviews in brackets)</p>
-
+		<h2>Highly reviewed places</h2>
 		<table>
 			<% @places.each do |place| %>
 			<tr>
@@ -18,6 +16,7 @@
 			  </tr>
 			<% end %>  
 		</table>
+		<p >(Number of reviews in brackets)</p>   
 		<br/>   
 
 	</div>    		
@@ -41,6 +40,12 @@
 		<% @reviewers.each do |reviewer| %>	
 			<div><%= link_to reviewer.username, user_path(reviewer.id) %> - <%= reviewer.reviews.count %> reviews</div>
 		<% end %>	
+	</div>    
+	<div class="chunkybox">
+		<h2>Most recently updated reviews </h2> 
+		<% @recent_reviews.each	do |recent| %>
+			<div><%= link_to recent.place.name, review_path(recent.id) %>
+		<% end %>
 	</div>
 </div>
 

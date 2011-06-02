@@ -5,7 +5,8 @@ class PlacesController < ApplicationController
     # @places = Place.all
     @places = Place.most_reviewed
     @places = Place.highest_reviewed(10)
-    @reviewers = User.all
+    @reviewers = User.all(:limit => 10)
+    @recent_reviews = Review.all(:limit => 10, :order => 'updated_at DESC')
     # User.all.each do |user|
     #   user
     # end
