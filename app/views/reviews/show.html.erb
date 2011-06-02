@@ -35,19 +35,25 @@
 			<!-- <%= link_to @review.user_id, user_path(@review.user_id) %> -->
 		</p>
 
+		<%= link_to 'Back to list site reviews', "/places/#{@review.place.wdpa_id}/all_reviews" %>    
+	</div>
 
+		<div class="chunkybox">
+			<h2>Rich content linked to this review</h2>
+			<div>
+				<%= pluralize(@review.richcontents.count, "piece") %> of rich content associated with this review
+			</div>
 
-		<!-- <p>
-		  <em>Review value:</em>
-		  <%= @review.review_value %>
-		</p> -->
+			<% @review.richcontents.each do |piece| %>
+				<div>
+					<em><%= piece.content_name %></em> [<%= link_to 'Link', "http://#{piece.content_url}" %>]
+				</div>
+			<% end %>
 
-		<%= link_to 'Back to list site reviews', "/places/#{@review.place.wdpa_id}/all_reviews" %>
-
-		<!-- <%= link_to 'Edit', edit_review_path(@review) %> |
-		<%= link_to 'Back', reviews_path %> -->
-
-		<%= render 'richcontent/show' %>
 
 	</div>
+</div>
+
+<div class="grid_6">
+	<%= render 'places/map' %>	
 </div>

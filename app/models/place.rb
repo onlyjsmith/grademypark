@@ -58,26 +58,29 @@ class Place < ActiveRecord::Base
     end
     output = [poly_string[0..-2], poly_centre]
   end
-      
+    
+  # TODO: No idea if this works properly - think not
   def self.update_review_count
     Place.all.each do |place|
       place.review_count = place.reviews.count 
       place.save
     end
   end
-  
+
+  # TODO: No idea if this works properly - think not  
   def self.update_avg_rating
     Place.all.each do |place|
       place.avg_rating = place.total_rating / place.review_count
       place.save
     end
   end
-  
+
+  # TODO: No idea if this works properly - think not  
   def self.highest_reviewed(limit)
     Place.find(:all, :limit => limit, :order => 'avg_rating DESC')
   end
   
-  
+  # TODO: No idea if this works properly - think not  
   def self.most_reviewed
     Place.find(:all, :order => 'review_count DESC')
   end

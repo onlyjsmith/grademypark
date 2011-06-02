@@ -1,5 +1,10 @@
-<% @results.each do |result| %>
-	<p><%= link_to "New review for #{result[1]}", "/reviews/new/#{result[0]}" %></p>
-<% end %>
+<div class="grid_9">   
+	<div class="chunkybox"> 
+		<h2>Search results</h2>
+		<% @results.each do |result| %>
+			<div><%= link_to "New review for #{result[1]}", "/reviews/new/#{result[0]}" %></div>
+		<% end %>
 
-<p>Or did you mean .... ?</p>
+		<em><p>Or did you mean .... ?</p></em>
+	</div>
+</div>

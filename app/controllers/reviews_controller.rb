@@ -14,7 +14,11 @@ class ReviewsController < ApplicationController
   # GET /reviews/1
   # GET /reviews/1.xml
   def show
-    @review = Review.find(params[:id])
+    @review = Review.find(params[:id])  
+    wdpa_id = Place.find_by_wdpa_id(@review.place.wdpa_id).wdpa_id
+    data = Place.decode(wdpa_id)
+    @poly_string = data[0]
+    @poly_centre = data[1]
 
     respond_to do |format|
       format.html # show.html.erb
