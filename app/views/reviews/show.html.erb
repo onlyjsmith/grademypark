@@ -3,7 +3,10 @@
 		
 		<p id="notice"><%= notice %></p>
 
-        <h2><%= link_to "Review of #{@review.place.name}", all_reviews_path(@review.place.wdpa_id) %></h2>
+        <h2>
+			<%= image_tag "icons/single.png", :title => "single" %>
+			<%= link_to "Review of #{@review.place.name}", all_reviews_path(@review.place.wdpa_id) %>
+		</h2>
 		<!-- <p>
 		  <b>Place_id:</b>
 		  <%= @review.place_id %>
@@ -21,7 +24,7 @@
 		</tr>
 		</table>
 		<p>
-		  <b>Review text:</b>
+		  <!-- <b>Review text:</b> -->
 		  <%= @review.review_text %>
 		</p>
 
@@ -39,7 +42,10 @@
 	</div>
 
 		<div class="chunkybox">
-			<h2>Rich content linked to this review</h2>
+			<h2>
+				<%= image_tag "icons/pic.png", :title => "picture" %>
+				Content linked to this review
+			</h2>
 			<div>
 				<%= pluralize(@review.richcontents.count, "piece") %> of rich content associated with this review
 			</div>

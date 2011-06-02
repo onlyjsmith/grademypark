@@ -1,6 +1,9 @@
 <div class="grid_6">
 	<div class="chunkybox">
-		<h2>Highly reviewed places</h2>
+		<h2>
+	   		<%= image_tag "icons/star_fill.png", :title => "star" %>
+			Highly reviewed places
+		</h2>
 		<table>
 			<% @places.each do |place| %>
 			<tr>
@@ -21,7 +24,10 @@
 
 	</div>    		
 	<div class="chunkybox">
-			<h2>Search sites to add a new review</h2>
+			<h2>
+				<%= image_tag "icons/search.png", :title => "search" %>
+				Search sites to add a new review
+			</h2>
 
 			<div id="search">
 			  <%= render :partial => 'places/search' %>
@@ -36,13 +42,18 @@
 
 <div class="grid_6">
 	<div class="chunkybox">
-		<h2>Most prolific reviewers</h2>
+		<h2>
+			<%= image_tag "icons/graph_up.png", :title => "people" %>
+			Most prolific reviewers
+		</h2>
 		<% @reviewers.each do |reviewer| %>	
 			<div><%= link_to reviewer.username, user_path(reviewer.id) %> - <%= reviewer.reviews.count %> reviews</div>
 		<% end %>	
 	</div>    
 	<div class="chunkybox">
-		<h2>Most recently updated reviews </h2> 
+		<h2>
+			<%= image_tag "icons/new.png", :title => "new" %>
+			Most recently updated reviews </h2> 
 		<% @recent_reviews.each	do |recent| %>
 			<div><%= link_to recent.place.name, review_path(recent.id) %>
 		<% end %>
