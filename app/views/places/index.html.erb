@@ -37,3 +37,10 @@
 	</br/>
 	<!-- <%= link_to 'New Place', new_place_path %> -->
 </div>
+
+<div class='grid_6'>
+	<h2>Most prolific reviewers</h2>
+<% @reviewers.each do |reviewer| %>	
+	<div><%= reviewer.username %> - <%= reviewer.reviews.count %> reviews</div>
+<% end %>	
+</div>

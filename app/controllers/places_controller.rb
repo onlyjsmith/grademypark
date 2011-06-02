@@ -5,6 +5,10 @@ class PlacesController < ApplicationController
     # @places = Place.all
     @places = Place.most_reviewed
     @places = Place.highest_reviewed(10)
+    @reviewers = User.all
+    # User.all.each do |user|
+    #   user
+    # end
     
     respond_to do |format|
       format.html # index.html.erb
