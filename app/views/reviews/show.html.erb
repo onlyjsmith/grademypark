@@ -5,7 +5,7 @@
 
         <h2>
 			<%= image_tag "icons/single.png", :title => "single" %>
-			<%= link_to "Review", place_reviews_path(@review.place.id) %>
+			<%= link_to "Review of #{@review.place.name}", place_reviews_path(@review.place.id) %>
 		</h2>
 
 		<div class="grid_12">
@@ -47,7 +47,10 @@
 				<div>
 					<em><%= piece.content_name %></em> [<%= link_to 'Link', "http://#{piece.content_url}" %>]
 				</div>
-			<% end %>
+			<% end %> 
+			
+			<%= image_tag "icons/pic_sm.png", :title => "title", :class => "class" %>
+			<%= link_to "Add new content", "/richcontents/new/#{@review.id}" %>
 
 
 	</div>

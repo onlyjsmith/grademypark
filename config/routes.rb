@@ -3,11 +3,14 @@ Grademypark::Application.routes.draw do
 
   resources :places
 
-  resources :users
+  resources :users  
+  
+  resources :richcontents
   
   match 'places/:id/place_reviews' => 'places#place_reviews', :as => 'place_reviews'
   match 'places/search' => 'places#search'
   match 'reviews/new/:id' => 'reviews#new_from_search'
+  match 'richcontents/new/:id' => 'richcontents#new'
   
   # The priority is based upon order of creation:
   # first created -> highest priority.
