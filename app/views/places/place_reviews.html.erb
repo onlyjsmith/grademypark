@@ -43,8 +43,20 @@
 				<%= link_to content.content_name, "http://#{content.content_url}" %>
 				<!-- <%= content.content_name %> -->
 			<% end %>
-			
+	</div>
+	<div class="chunkybox">
+		<div class="boxheader">
+			<h2>
+				<%= image_tag "icons/plus.png", :title => "title", :class => "class" %>
+				Add new review
+			</h2>                    
+			<textarea rows="2" cols="30" class="review">
+			</textarea>
 
+			<%= render_stars(3) %>
+<!-- TODO Make this review form work! -->
+
+		</div>
 	</div>
 </div>
 

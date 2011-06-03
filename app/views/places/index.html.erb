@@ -42,15 +42,7 @@
 </div>
 
 <div class="grid_6">
-	<div class="chunkybox">
-		<h2>
-			<%= image_tag "icons/graph_up.png", :title => "people" %>
-			Most active reviewers
-		</h2>
-		<% @reviewers.each do |reviewer| %>	
-			<div><%= link_to reviewer.username, user_path(reviewer.id) %> - <%= reviewer.reviews.count %> reviews</div>
-		<% end %>	
-	</div>    
+
 	<div class="chunkybox">
 		<h2>
 			<%= image_tag "icons/new.png", :title => "new" %>
@@ -67,6 +59,15 @@
 				<% end %>  
 			</table>
 
+	</div> 
+	<div class="chunkybox">
+		<h2>
+			<%= image_tag "icons/graph_up.png", :title => "people" %>
+			Most active reviewers
+		</h2>
+		<% @reviewers.each do |reviewer| %>	
+			<div><%= link_to reviewer.username, user_path(reviewer.id) %> - <%= reviewer.reviews.count %> reviews</div>
+		<% end %>	
 	</div>
 </div>
 
