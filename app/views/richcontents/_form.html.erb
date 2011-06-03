@@ -1,0 +1,29 @@
+<%= form_for(@richcontent) do |f| %>
+  <% if @richcontent.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@richcontent.errors.count, "error") %> prohibited this richcontent from being saved:</h2>
+
+      <ul>
+      <% @richcontent.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %> 
+	
+	<%= f.label :content_name, "Title of content" %>
+	<%= f.text_field :content_name %> <br/>
+	
+	<%= f.label :content_url, "Url for content" %>
+	<%= f.text_field :content_url %>  <br/>
+	
+	<!-- <%= f.label :content_type, "Content Type" %>
+	<%= f.text_field :content_type %> <br/>    -->
+	               
+	<%= f.hidden_field :review_id %>
+	<!-- <%= f.label :review_id, "Review Id" %>
+	<%= f.text_field :review_id %> -->
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,21 @@
+<h1>Listing richcontents</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @richcontents.each do |richcontent| %>
+  <tr>
+    <td><%= link_to 'Show', richcontent %></td>
+    <td><%= link_to 'Edit', edit_richcontent_path(richcontent) %></td>
+    <td><%= link_to 'Destroy', richcontent, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Richcontent', new_richcontent_path %>
