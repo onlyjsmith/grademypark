@@ -3,7 +3,9 @@ Grademypark::Application.routes.draw do
 
   resources :places
 
-  resources :users
+  resources :users  
+  
+  resource :richcontent
   
   match 'places/:id/place_reviews' => 'places#place_reviews', :as => 'place_reviews'
   match 'places/search' => 'places#search'
