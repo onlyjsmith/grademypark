@@ -2,13 +2,14 @@
 	<div class="chunkybox">
 		<div class='boxheader'>
 	   		<h2><%= image_tag "icons/star_fill.png", :title => "star" %>
-			Highly reviewed places</h2>
+			Most popular places</h2>
 		</div>
 		<table>
 			<% @places.each do |place| %>
 			<tr>
-				<td><%= link_to place.name, "/places/#{place.id}/place_reviews" %></td>
-				<td><%= "*" * place.avg_rating %><%= place.avg_rating %> (<%= place.review_count %>)</td>
+				<td ><%= link_to place.name, "/places/#{place.id}/place_reviews" %></td>
+				<td ><%= render_stars(place.avg_rating)%> (<%= place.review_count %>)</td>
+				<!-- <td><%= "*" * place.avg_rating %><%= place.avg_rating %> (<%= place.review_count %>)</td> -->
 			    <!-- <td><%= place.name %></td>
 			    <td><%= place.wdpa_id %></td>
 				<td><%= link_to 'Reviews', "/places/#{place.id}/place_reviews" %></td>
@@ -44,7 +45,7 @@
 	<div class="chunkybox">
 		<h2>
 			<%= image_tag "icons/graph_up.png", :title => "people" %>
-			Most prolific reviewers
+			Most active reviewers
 		</h2>
 		<% @reviewers.each do |reviewer| %>	
 			<div><%= link_to reviewer.username, user_path(reviewer.id) %> - <%= reviewer.reviews.count %> reviews</div>
@@ -53,13 +54,14 @@
 	<div class="chunkybox">
 		<h2>
 			<%= image_tag "icons/new.png", :title => "new" %>
-			Most recently updated reviews </h2> 
+			Recently updated reviews </h2> 
 
 			<table>
 				<% @recent_reviews.each do |review| %>
 				<tr>
 					<td><%= link_to review.place.name, review_path(review.id) %></td>
-					<td><%= "*" * review.rating%><%= review.rating %></td>
+					<!-- <td><%= "*" * review.rating%><%= review.rating %></td> -->
+					<td><%= render_stars(review.rating) %></td>
 
 				  </tr>
 				<% end %>  

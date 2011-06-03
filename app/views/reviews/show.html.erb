@@ -5,40 +5,33 @@
 
         <h2>
 			<%= image_tag "icons/single.png", :title => "single" %>
-			<%= link_to "Review of #{@review.place.name}", all_reviews_path(@review.place.wdpa_id) %>
+			<%= link_to "Review", place_reviews_path(@review.place.id) %>
 		</h2>
-		<!-- <p>
-		  <b>Place_id:</b>
-		  <%= @review.place_id %>
-		</p> -->
-		<table border = "1" width = '50%'>
-		<tr>
-			<td><b>Rating:</b></td>
-			<td><b>Wildness:</b></td>
-			<td><b>Management:</b></td>
-		</tr>
-		<tr>
-			<td><%= "*" * @review.rating %> (<%= @review.rating %>)</td>
-		  	<td><%= "*" * @review.wildness %>(<%= @review.wildness %>)</td>
-		  	<td><%= "*" * @review.management %>(<%= @review.management %>)</td>
-		</tr>
-		</table>
-		<p>
-		  <!-- <b>Review text:</b> -->
-		  <%= @review.review_text %>
-		</p>
 
-		<!-- <p>
-		  <b>Contact details:</b>
-		  <%= @review.contact_details %>
-		</p> -->
+		<div class="grid_12">
+			<div class="grid_4 right_border">
+				<div>Rating <%= render_stars(@review.rating) %></div>
+				<div>Wildness <%= render_stars(@review.wildness) %></div>
+				<div>Management <%= render_stars(@review.management) %></div>
+			</div>
+			<div class="grid_8 review">
+				<%= @review.review_text %> 
+				<br/>
+				<p> <em>Review by
+				  <%= link_to @review.user.username, user_path(@review.user_id) %></em>
+					<!-- <%= link_to @review.user_id, user_path(@review.user_id) %> -->
+				</p>
+				
+			</div>
+		</div>
 
-		<p> <em>Review by
-		  <%= link_to @review.user.username, user_path(@review.user_id) %></em>
-			<!-- <%= link_to @review.user_id, user_path(@review.user_id) %> -->
-		</p>
-		<%= link_to "Add new review for this site", "/reviews/new/#{@review.place.wdpa_id}" %><br/>
-		<%= link_to 'Back to list site reviews', "/places/#{@review.place.wdpa_id}/all_reviews" %>    
+
+		<%= image_tag "icons/plus_sm.png", :title => "title", :class => "class" %>
+		<em><%= link_to "Add new review for this site", "/reviews/new/#{@review.place.wdpa_id}" %><br/></em>
+		
+		
+		<%= image_tag "icons/pile_sm.png" %>
+		<em><%= link_to "Back to reviews for #{@review.place.name}", "/places/#{@review.place.id}/place_reviews" %></em>
 	</div>
 
 		<div class="chunkybox">
