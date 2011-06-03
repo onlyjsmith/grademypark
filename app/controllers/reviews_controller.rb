@@ -31,7 +31,7 @@ class ReviewsController < ApplicationController
   def new
     logger.info("PARAMS: #{params.inspect}")
     @review = Review.new
-    @review.user_id = 1
+    @review.user_id = 2
     
     respond_to do |format|
       format.html # new.html.erb
@@ -42,7 +42,7 @@ class ReviewsController < ApplicationController
   def new_from_search
     logger.info("PARAMS: #{params.inspect}")
     @review = Review.new
-    @review.user_id = 1
+    @review.user_id = 2
     
     if Place.find_by_wdpa_id(params[:id]).nil?
       then Place.create(:wdpa_id => (params[:id]), :name => Place.find_name_from_id(params[:id]), :review_count => 1, :total_rating => 1, :avg_rating => 1)
