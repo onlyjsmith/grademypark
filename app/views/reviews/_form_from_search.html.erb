@@ -27,8 +27,8 @@
   </div> -->
   <div class="field">
     <%= f.label "Your review" %><br />
-	<%= f.text_area :review_text, :class => 'review', :size=> '50x6' %>
-  </div>
+	<%= f.text_area :review_text, :class => 'review', :size=> '40x6' %>
+  </div>                                                                 
 
 <table>
 <tr>
@@ -37,9 +37,9 @@
 	<td><b>Management 1-5 stars</b></td>
 </tr>
 <tr>
-	<td><%= f.text_field :rating %></td>
-  	<td><%= f.text_field :wildness %></td>
-  	<td><%= f.text_field :management %></td>
+	<td><%= f.text_field :rating, :size => '3' %></td>
+  	<td><%= f.text_field :wildness, :size => '3' %></td>
+  	<td><%= f.text_field :management, :size => '3' %></td>
 </tr>
 </table>
 <br/>

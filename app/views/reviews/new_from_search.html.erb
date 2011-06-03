@@ -1,8 +1,16 @@
-<div class="grid_9">    
+<div class="grid_6">    
 	<div class="chunkybox">
 		<h2>Add a new review</h2>
 			<%= render 'form_from_search' %>
 
 			<%= link_to 'Back', reviews_path %>
+	</div>
+</div>    
+
+<div class="grid_6">    
+	<div class="chunkybox">    
+		<!-- <%= logger.info 'new_from_search' %> -->
+		<!-- <%= debugger %> -->
+		<%= render 'places/map'# , :locals => {:fish => :true} %>
 	</div>
 </div>

@@ -7,7 +7,7 @@ class Place < ActiveRecord::Base
   format :json
   
   def self.search(search)
-    #go off to API and return results
+    #go off to ProtectedPlanet API and return results
     # format :json
     results = Place.get("http://protectedplanet.net/api/search?q=#{search}", :format => :json)
     # debugger
@@ -37,15 +37,7 @@ class Place < ActiveRecord::Base
   def self.get_boundary(wdpa_id)
     data = Place.get("http://protectedplanet.net/api2/sites/#{wdpa_id}")['official']['GEOM']
   end
-  
-  # def self.get_kml(wdpa_id)
-  #   data = Place.get("http://protectedplanet.net/api2/sites/#{wdpa_id}")['official']['GEOM']
-  #   trim = data
-  #   # trim = data[10..-1]
-  #   parser = RGeo::WKRep::WKTParser.new(:support_ewkt => :true)
-  #   parser.parse(trim)
-  # end
-  
+
   
   def self.decode(wdpa_id)
     @data = Place.get("http://protectedplanet.net/api2/sites/#{wdpa_id}")['official']['GEOM']

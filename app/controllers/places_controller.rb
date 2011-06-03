@@ -88,11 +88,11 @@ class PlacesController < ApplicationController
     end
   end
   
-  def all_reviews
-    @place = Place.find_by_wdpa_id(params[:id])
-    @reviews = Place.find_by_wdpa_id(params[:id]).reviews
-    wdpa_id = Place.find_by_wdpa_id(params[:id]).wdpa_id
-    data = Place.decode(wdpa_id)
+  def place_reviews
+    @place = Place.find(params[:id])
+    @reviews = @place.reviews
+    wdpa_id = @place.wdpa_id
+    data = Place.decode(@place.wdpa_id)
     @poly_string = data[0]
     @poly_centre = data[1]
     # @reviews = Review.find_all_by_place_wdpa_id(params[:id])

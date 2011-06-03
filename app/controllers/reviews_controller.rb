@@ -51,12 +51,7 @@ class ReviewsController < ApplicationController
     end
     place = Place.find_by_wdpa_id(params[:id])
     
-    
-    # place = Place.find_or_create_by_wdpa_id(params[:id]) {|u| u.name = Place.find_name_from_id(params[:id]), u.review_count = 1}
-    
-    
     @review.place_id = place.id
-    
     
     respond_to do |format|
       format.html # new.html.erb
