@@ -1,3 +1,91 @@
+/* FROM SCAFFOLD.CSS*/
+
+body { background-color: #6f806a; color: #333; }
+
+h2 { 
+	color: white;
+	padding-bottom: 7px;
+	line-height: 110%; 
+/*	text-decoration: underline;*/
+}
+
+body, p, ol, ul, td {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size:   15px;
+  line-height: 18px;
+}
+
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}
+
+a { color: #000; }
+a:visited { color: #666; }
+a:hover { color: #fff;}
+
+div.field, div.actions {
+  margin-bottom: 10px;
+}
+
+#notice {
+  color: green;
+}
+
+.field_with_errors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+#error_explanation {
+  width: 450px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+
+#error_explanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  margin-bottom: 0px;
+  background-color: #c00;
+  color: #fff;
+}
+
+#error_explanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
+
+h1 a {
+	text-decoration: none;
+}
+h1 a:visited {
+/*	background: black;*/
+	color: white;   
+/*	border-bottom: 1px solid #999;   */  
+	text-decoration: none;
+}
+
+h1 a:hover {
+	color: 	#dac2aa;
+	text-decoration: none;
+}  
+
+/*CUSTOM CSS*/
+
+/*#main {
+	margin-top: 40px;
+	margin-left: 50px;
+}*/
+
 #map_canvas {
 	border: 1px solid #999;
 	height: 400px;
@@ -7,7 +95,7 @@
 	}
 	
 .chunkybox {
-	border: 1px solid #999;
+	border: 1px solid #576453;
 	margin: 7px;
 	padding: 10px;
 /*	-moz-box-shadow: 3px 3px 4px #000;
@@ -17,7 +105,7 @@
 }
 
 .boxtitle {
-	background: #d84a40;
+	background: #c0564a;
 /*	height: 80px;   */
 }
 	      
