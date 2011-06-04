@@ -23,7 +23,7 @@ pre {
 
 a { color: #000; }
 a:visited { color: #666; }
-a:hover { color: #fff;}
+a:hover { color: #576453;}
 
 div.field, div.actions {
   margin-bottom: 10px;
@@ -135,3 +135,23 @@ h1 a:hover {
 .right_border {
 	border-right: 1px solid #999;
 } 
+
+.footer {
+	background-color: #576453;
+	margin: 7px; 
+	padding: 5px;
+	text-align:right;
+	color: white;
+	font-size: 12px; 
+	border: 1px solid #999;
+}
+
+.footer a:visited {
+	color:white;
+	text-decoration: none;
+}
+
+.footer a:hover {
+	text-decoration: underline;
+	color: blue;
+}

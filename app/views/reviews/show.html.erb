@@ -9,12 +9,12 @@
 		</h2>
 
 		<div class="grid_12">
-			<div class="grid_4 right_border">
+			<div class="grid_4">
 				<div>Rating <%= render_stars(@review.rating) %></div>
 				<div>Wildness <%= render_stars(@review.wildness) %></div>
 				<div>Management <%= render_stars(@review.management) %></div>
 			</div>
-			<div class="grid_8 review">
+			<div class="grid_6 review" style="border: 1px solid; padding: 5px">
 				<%= @review.review_text %> 
 				<br/>
 				<p> <em>Review by

@@ -1,4 +1,8 @@
-module ApplicationHelper    
+module ApplicationHelper                                       
+  
+  def proportion_reviewed
+    ("%0.4f" % (Place.count / 170000.0)).to_f * 100
+  end
 
   def render_stars(rating)
     content_tag(:div, star_images(rating).html_safe)
