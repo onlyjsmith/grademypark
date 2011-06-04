@@ -7,6 +7,7 @@ class PlacesController < ApplicationController
     @places = Place.highest_reviewed(10)
     @reviewers = User.all(:limit => 10)
     @recent_reviews = Review.all(:limit => 10, :order => 'updated_at DESC')
+    @proportion = ("%0.4f" % (Place.count / 170000.0)).to_f * 100
     # User.all.each do |user|
     #   user
     # end
