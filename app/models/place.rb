@@ -8,9 +8,7 @@ class Place < ActiveRecord::Base
   
   def self.search(search)
     #go off to ProtectedPlanet API and return results
-    # format :json
     results = Place.get("http://protectedplanet.net/api/search?q=#{search}", :format => :json)
-    # debugger
     @ids = []
     results[0].each do |r|
       @ids << [r['site']['id'], r['site']['cached_slug']]
@@ -42,6 +40,7 @@ class Place < ActiveRecord::Base
     @data = []
     @data << Place.get("http://protectedplanet.net/api2/sites/#{wdpa_id}")['official']['REP_AREA']
     @data << Place.get("http://protectedplanet.net/api2/sites/#{wdpa_id}")['official']['DESIG_ENG']
+    @data << Place.get("http://protectedplanet.net/api2/sites/#{wdpa_id}")['official']['COUNTRY']
     @data
   end
 

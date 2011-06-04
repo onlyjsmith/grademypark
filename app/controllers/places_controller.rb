@@ -96,8 +96,6 @@ class PlacesController < ApplicationController
     data = Place.decode(@place.wdpa_id)
     @poly_string = data[0]
     @poly_centre = data[1]
-    # @reviews = Review.find_all_by_place_wdpa_id(params[:id])
-    # debugger
     @info = Place.get_info(@place.wdpa_id)    
   end
   
@@ -105,6 +103,7 @@ class PlacesController < ApplicationController
     # @results = ["Search results", "All in here"]
     concatenated_search_terms = params[:search].split(" ").join("%20")
     @results = Place.search(concatenated_search_terms)
+    @message = 'Sorry. No results for this search. Try harder.' if @results.blank?
     render '_search_results' 
   end
   

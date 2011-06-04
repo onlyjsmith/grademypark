@@ -116,6 +116,12 @@ h1 a:hover {
 
 .review {
 	font-size: 18px;
+}
+
+.review_box {
+	border: 1px solid; 
+	padding: 5px;
+	background: white;
 }       
 
 .icon2 {

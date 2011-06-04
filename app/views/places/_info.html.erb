@@ -1,5 +1,10 @@
 <div class="chunkybox">
-	<h2>Info</h2>
-	<div><%= @info[0] %> km<sup>2</sup></div>
-	<div><%= @info[1] %></div>
+	<h2>
+		<%= image_tag "icons/info.png" %>
+		Site info
+	</h2>
+
+	<div>Size: <%= @info[0] %> km<sup>2</sup></div>
+	<div>Designation: <%= @info[1] %></div>
+	<div>Country: <%= @info[2] %></div>
 </div>

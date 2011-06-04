@@ -10,10 +10,16 @@
 				<%= link_to "New review for #{result[1]}", "/reviews/new/#{result[0]}" %>
 			</div>
 		<% end %>
+		<%= @message %>
 
-		<em><p>Or did you mean .... ?</p></em>
+		<!-- <em><p>Or did you mean .... ?</p></em>       -->
 	</div>
-	<div class="grid_3">
-		<h2>Or why not add a review for a site no-one's visited?</h2>
-	</div>
+
 </div>
+<!-- TODO: Figure out whether random sites is a good idea... -->
+<!-- <div class="grid_3">
+	<div class="chunkybox">
+		<h2>Or why not add a review for a site no-one's visited?</h2>
+		Like <strong>Timbuktu National Park</strong> or <strong>Less Well-known Place</strong>
+	</div>
+</div> -->

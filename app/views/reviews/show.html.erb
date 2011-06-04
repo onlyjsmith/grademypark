@@ -9,12 +9,12 @@
 		</h2>
 
 		<div class="grid_12">
-			<div class="grid_4">
+			<!-- <div class="grid_6"> -->
 				<div>Rating <%= render_stars(@review.rating) %></div>
 				<div>Wildness <%= render_stars(@review.wildness) %></div>
 				<div>Management <%= render_stars(@review.management) %></div>
-			</div>
-			<div class="grid_6 review" style="border: 1px solid; padding: 5px">
+			<!-- </div> -->
+			<div class="grid_6 review review_box">
 				<%= @review.review_text %> 
 				<br/>
 				<p> <em>Review by
@@ -44,13 +44,14 @@
 			</div>
 
 			<% @review.richcontents.each do |piece| %>
-				<div>
+				<div>                                                                
+					<%= image_tag "icons/world_sm.png", :title => "title", :class => "class" %>
 					<%= link_to piece.content_name, "http://#{piece.content_url}" %> 
 				</div>
 			<% end %> 
 			
 			<%= image_tag "icons/pic_sm.png", :title => "title", :class => "class" %>
-			<%= link_to "Add new content", "/richcontents/new/#{@review.id}" %>
+		    <%= link_to "Add new content", "/richcontents/new/#{@review.id}" %>
 
 
 		</div>
