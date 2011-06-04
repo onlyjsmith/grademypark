@@ -96,7 +96,8 @@ class PlacesController < ApplicationController
     @poly_string = data[0]
     @poly_centre = data[1]
     # @reviews = Review.find_all_by_place_wdpa_id(params[:id])
-    # debugger    
+    # debugger
+    @info = Place.get_info(@place.wdpa_id)    
   end
   
   def search

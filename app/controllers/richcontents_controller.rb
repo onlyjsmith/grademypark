@@ -47,7 +47,7 @@ class RichcontentsController < ApplicationController
 
     respond_to do |format|
       if @richcontent.save
-        format.html { redirect_to("/places/#{Review.find(@richcontent.review_id).place.id}/place_reviews", :notice => 'Richcontent was successfully created.') }
+        format.html { redirect_to(review_path(@richcontent.review_id), :notice => 'Richcontent was successfully created.') }
         format.xml  { render :xml => @richcontent, :status => :created, :location => @richcontent }
       else
         format.html { render :action => "new" }

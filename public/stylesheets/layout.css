@@ -3,7 +3,7 @@
 body { background-color: #6f806a; color: #333; }
 
 h2 { 
-	color: white;
+	color: #576453;
 	padding-bottom: 7px;
 	line-height: 110%; 
 /*	text-decoration: underline;*/
@@ -101,7 +101,7 @@ h1 a:hover {
 /*	-moz-box-shadow: 3px 3px 4px #000;
 	-webkit-box-shadow: 3px 3px 4px #000;
 	box-shadow: 3px 3px 4px #000;      */
-	background-color: #dac2aa;
+	background-color: #ded7cf;
 }
 
 .boxtitle {
@@ -134,4 +134,4 @@ h1 a:hover {
 
 .right_border {
 	border-right: 1px solid #999;
-}
+} 

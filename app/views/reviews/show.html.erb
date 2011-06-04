@@ -45,7 +45,7 @@
 
 			<% @review.richcontents.each do |piece| %>
 				<div>
-					<em><%= piece.content_name %></em> [<%= link_to 'Link', "http://#{piece.content_url}" %>]
+					<%= link_to piece.content_name, "http://#{piece.content_url}" %> 
 				</div>
 			<% end %> 
 			

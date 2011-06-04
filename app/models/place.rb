@@ -37,6 +37,13 @@ class Place < ActiveRecord::Base
   def self.get_boundary(wdpa_id)
     data = Place.get("http://protectedplanet.net/api2/sites/#{wdpa_id}")['official']['GEOM']
   end
+  
+  def self.get_info(wdpa_id)
+    @data = []
+    @data << Place.get("http://protectedplanet.net/api2/sites/#{wdpa_id}")['official']['REP_AREA']
+    @data << Place.get("http://protectedplanet.net/api2/sites/#{wdpa_id}")['official']['DESIG_ENG']
+    @data
+  end
 
   
   def self.decode(wdpa_id)

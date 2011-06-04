@@ -10,7 +10,7 @@
 		<div id="reviews_list">
 			<% @reviews.each do |review| %>
 				<div >
-					<%= link_to (image_tag "icons/single_sm.png", :title => "single_small"), review %>
+				    <!-- <%= link_to (image_tag "icons/single_sm.png", :title => "single_small"), review %> -->
 					<%= link_to review.review_text, review %>  
 					<%= render_stars(review.rating) %>
 					(<%= link_to review.user.username, user_path(review.user) %>)
@@ -39,8 +39,10 @@
 			</h2> 
 		</div>		
 			<% @place.richcontents.each do |content| %>
-				<%= image_tag "icons/world_sm.png", :title => "small world - link" %>
+				<div><%= image_tag "icons/world_sm.png", :title => "small world - link" %>
 				<%= link_to content.content_name, "http://#{content.content_url}" %>
+				(<%= link_to "Review", review_path(content.review_id) %>)
+				</div>
 				<!-- <%= content.content_name %> -->
 			<% end %>
 	</div>
@@ -61,5 +63,12 @@
 </div>
 
 <div class="grid_6">
-	<%= render 'places/map' %>
+	<%= render 'places/map' %> 
+	
+	<div class="chunkybox">
+		<h2>Info</h2>
+		<div><%= @info[0] %> km<sup>2</sup></div>
+		<div><%= @info[1] %></div>
+	</div>
+	
 </div>

@@ -51,7 +51,9 @@
 			<table>
 				<% @recent_reviews.each do |review| %>
 				<tr>
-					<td><%= link_to review.place.name, review_path(review.id) %></td>
+					<td><%= link_to review.place.name, review_path(review.id) %>
+						(<%= time_ago_in_words(review.updated_at) %> ago)
+						</td>
 					<!-- <td><%= "*" * review.rating%><%= review.rating %></td> -->
 					<td><%= render_stars(review.rating) %></td>
 
