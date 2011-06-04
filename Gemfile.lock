@@ -194,6 +194,7 @@ DEPENDENCIES
   haml
   httparty
   irbtools-more
+  multi_json
   omniauth
   rails (= 3.0.7)
   rake (= 0.8.7)

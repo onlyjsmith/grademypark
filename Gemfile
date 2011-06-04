@@ -6,9 +6,9 @@ gem 'rails', '3.0.7'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3'
-# gem 'rake'
 gem "rake", "0.8.7"
 gem 'httparty'
+gem 'multi_json'
 # gem 'GeoRuby'
 # gem 'ppe-georuby'
 # gem 'geokit-rails3'
