@@ -103,7 +103,8 @@ class PlacesController < ApplicationController
   
   def search
     # @results = ["Search results", "All in here"]
-    @results = Place.search(params[:search])
+    concatenated_search_terms = params[:search].split(" ").join("%20")
+    @results = Place.search(concatenated_search_terms)
     render '_search_results' 
   end
   

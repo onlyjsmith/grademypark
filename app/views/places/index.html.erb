@@ -4,11 +4,11 @@
 	   		<h2><%= image_tag "icons/star_fill.png", :title => "star" %>
 			Most popular places</h2>
 		</div>
-		<table>
+		<table style="width: 100%;">
 			<% @places.each do |place| %>
 			<tr>
 				<td ><%= link_to place.name, "/places/#{place.id}/place_reviews" %></td>
-				<td ><%= render_stars(place.avg_rating)%> (<%= place.review_count %>)</td>
+				<td style="width: 90px;" ><%= render_stars(place.avg_rating)%> (<%= place.review_count %>)</td>
 				<!-- <td><%= "*" * place.avg_rating %><%= place.avg_rating %> (<%= place.review_count %>)</td> -->
 			    <!-- <td><%= place.name %></td>
 			    <td><%= place.wdpa_id %></td>
@@ -20,7 +20,7 @@
 			  </tr>
 			<% end %>  
 		</table>
-		<p >(Number of reviews in brackets)</p>   
+		<div style="text-align: right">(Number of reviews in brackets)</div>   
 		<br/>   
 
 	</div>    		
@@ -48,14 +48,14 @@
 			<%= image_tag "icons/new.png", :title => "new" %>
 			Recently updated reviews </h2> 
 
-			<table>
+			<table style="width: 100%;">
 				<% @recent_reviews.each do |review| %>
 				<tr>
-					<td><%= link_to review.place.name, review_path(review.id) %>
+					<td ><%= link_to review.place.name, review_path(review.id) %>
 						(<%= time_ago_in_words(review.updated_at) %> ago)
 						</td>
 					<!-- <td><%= "*" * review.rating%><%= review.rating %></td> -->
-					<td><%= render_stars(review.rating) %></td>
+					<td style="width: 90px;"><%= render_stars(review.rating) %></td>
 
 				  </tr>
 				<% end %>  
