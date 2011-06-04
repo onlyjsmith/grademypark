@@ -68,7 +68,8 @@
 			Most active reviewers
 		</h2>
 		<% @reviewers.each do |reviewer| %>	
-			<div><%= link_to reviewer.username, user_path(reviewer.id) %> - <%= reviewer.reviews.count %> reviews</div>
+			<div><%= link_to reviewer.username, user_path(reviewer.id) %> has visited 
+				<strong> <%= reviewer.reviews.count%> </strong> places</div>
 		<% end %>	
 	</div>
 </div>
