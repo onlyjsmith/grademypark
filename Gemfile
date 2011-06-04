@@ -16,6 +16,7 @@ gem 'httparty'
 # gem 'geo_ruby'
 # gem 'rgeo'
 gem 'haml'
+gem 'omniauth'
 
 # Debugging
 # Use unicorn as the web server

@@ -1,5 +1,6 @@
 module ApplicationHelper                                       
-  
+
+
   def proportion_reviewed
     ("%0.4f" % (Place.count / 170000.0)).to_f * 100
   end
@@ -13,5 +14,4 @@ module ApplicationHelper
       image_tag ("icons/star_fill_sm.png"), {:class => "stars"}
     end.join
   end 
-
 end

@@ -11,6 +11,9 @@ Grademypark::Application.routes.draw do
   match 'places/search' => 'places#search'
   match 'reviews/new/:id' => 'reviews#new_from_search'
   match 'richcontents/new/:id' => 'richcontents#new'
+
+  match "/auth/:provider/callback" => "sessions#create"
+  match "/signout" => "sessions#destroy", :as => :signout
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -11,8 +11,17 @@
 
 <div class="container clearfix"> 
 	<div class="grid_12">
+		<div id="login">
+			<% if current_user %>
+			  Welcome <%= current_user.name %>!
+			  <%= link_to "Sign Out", signout_path %>
+			<% else %>
+			  <%= link_to "Sign in with Twitter", "/auth/twitter" %>
+			<% end %>
+		</div>
+		
 		<div class="boxtitle chunkybox">
-	         <%= link_to (image_tag "logo/logo20.png", :class => 'icon2'), root_path %>
+	         <%= link_to (image_tag "logo/logo2_20.png", :class => 'icon2'), root_path %>
 	         <h1><%= link_to 'Grade My Park', root_path %></h1>
 		</div>
 		<div style="color: white; text-align: center">So far, <%= proportion_reviewed %>% of the worlds PAs have been reviewed! 
