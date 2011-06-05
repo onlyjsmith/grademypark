@@ -124,6 +124,7 @@ h1 a:hover {
 	border: 1px solid; 
 	padding: 5px;
 	background: white;
+	margin-bottom: 5px;
 }       
 
 .icon2 {
@@ -138,7 +139,7 @@ h1 a:hover {
 }     
 
 .stars {
-	float: left;
+  float: left;
 }
 
 .right_border {
