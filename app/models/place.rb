@@ -9,7 +9,7 @@ class Place < ActiveRecord::Base
   def self.search(search)
     #go off to ProtectedPlanet API and return results
     debugger
-    results = Place.get("http://protectedplanet.net/api/search?q=#{search}")#, :format => :json)
+    results = Place.get("http://protectedplanet.net/api/search?q=#{search}", :format => :json)
     # results = RestClient.get "http://protectedplanet.net/api/search?q=#{search}", {:accept => :json}
     @ids = []
     # results.parsed_response.
