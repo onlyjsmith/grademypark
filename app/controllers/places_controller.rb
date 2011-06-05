@@ -88,7 +88,6 @@ class PlacesController < ApplicationController
     data = Place.decode(@place.wdpa_id)
     @poly_string = data[0]
     @poly_centre = data[1]
-    @info = Place.get_info(@place.wdpa_id)    
   end
   
   # def search

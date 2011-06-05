@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110605174917) do
+ActiveRecord::Schema.define(:version => 20110605180823) do
 
   create_table "countries", :force => true do |t|
     t.string   "long_name"
@@ -31,6 +31,8 @@ ActiveRecord::Schema.define(:version => 20110605174917) do
     t.integer  "total_rating"
     t.integer  "avg_rating"
     t.integer  "country_id"
+    t.string   "designation"
+    t.float    "reported_area"
   end
 
   create_table "reviews", :force => true do |t|

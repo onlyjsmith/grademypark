@@ -3,9 +3,9 @@
     = image_tag "icons/info.png"
     Site info
   %div
-    Size: #{@info[0]} km
+    Size: #{@place.reported_area} km
     %sup 2
   %div
-    Designation: #{@info[1]}
+    Designation: #{@place.designation}
   %div
-    Country: #{@info[2]}                      
+    Country: #{@place.country.long_name}                      

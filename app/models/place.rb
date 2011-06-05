@@ -41,6 +41,10 @@ class Place < ActiveRecord::Base
   end
   
   def self.get_info(wdpa_id)
+  # info[0] is reported area
+  # info[1] is designation(english)
+  # info[2] is country(iso_3)
+  # info[3] is name of PA
     response = Place.get("http://protectedplanet.net/api2/sites/#{wdpa_id}")
     @data = []
     @data << response['official']['REP_AREA']
@@ -105,6 +109,16 @@ class Place < ActiveRecord::Base
       country_id = Country.find_by_short_name(place_country).id
       place.update_attributes(:country_id => country_id)
       puts "Updated #{place.name} to #{country_id}"
+    end
+  end 
+  
+  def self.add_missing_place_data
+    list1 = Place.find_all_by_designation(nil)
+    list2 = Place.find_all_by_reported_area(nil)
+    list = (list1 + list2).uniq
+    list.each do |place|
+      info = Place.get_info(place.wdpa_id)
+      place.update_attributes(:designation => info[1], :reported_area => info[0])
     end
   end
 end
