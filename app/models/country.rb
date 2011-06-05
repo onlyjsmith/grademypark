@@ -3,8 +3,6 @@ class Country < ActiveRecord::Base
    has_many :reviews, :through => :places
 
   def self.import
-    destroy_all
-    puts "Emptied DB"
     include HTTParty 
     # data = HTTParty.get("http://protectedplanet.net/api/countries")
     file =  File.open('lib/countries.txt', 'r')
@@ -29,7 +27,12 @@ class Country < ActiveRecord::Base
   
   def self.destroy_all
     Country.all.each {|c| c.destroy}
+    Place.all.each {|p| p.update_attributes(:country_id => nil)}
   end
   
+  def self.update_everything
+    Country.import
+    Country.update_review_counts
+  end
   
 end

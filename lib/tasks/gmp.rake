@@ -13,7 +13,15 @@ namespace :gmp do
     Place.update_review_count
     Place.update_total_rating
     Place.update_avg_rating
+    puts "Has added bunches of stuff"
   end
-     
+  
+  desc "update_place_scores"
+  task :update_place_scores  => :environment do
+    Place.update_review_count
+    Place.update_total_rating
+    Place.update_avg_rating
+    puts "Has updated scores for Places successfully"
+  end
   
 end

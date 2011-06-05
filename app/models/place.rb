@@ -24,18 +24,6 @@ class Place < ActiveRecord::Base
     result = Place.get("http://protectedplanet.net/api2/sites/#{id}")['official']['NAME']
   end
   
-
-  def self.update_total_rating
-    Place.all.each do |place|
-      total = 0
-      place.reviews.all.each do |review|
-        total += review.rating 
-      end
-      place.total_rating = total
-      place.save
-    end
-  end
-
   def self.get_boundary(wdpa_id)
     data = Place.get("http://protectedplanet.net/api2/sites/#{wdpa_id}")['official']['GEOM']
   end
@@ -68,22 +56,34 @@ class Place < ActiveRecord::Base
     output = [poly_string[0..-2], poly_centre]
   end
     
-  # TODO: No idea if this works properly - think not
   def self.update_review_count
     Place.all.each do |place|
-      place.review_count = place.reviews.count 
+      place.update_attributes(:review_count => place.reviews.count)
+    end
+  end
+
+  def self.update_total_rating
+    Place.all.each do |place|
+      total = 0
+      place.reviews.all.each do |review|
+        total += review.rating 
+      end
+      place.total_rating = total
       place.save
     end
   end
 
-  # TODO: No idea if this works properly - think not  
   def self.update_avg_rating
     Place.all.each do |place|
-      place.avg_rating = place.total_rating / place.review_count
-      place.save
+      if place.total_rating == 0
+        place.update_attributes(:avg_rating => 0)        
+      else
+        avg_rating = place.total_rating / place.review_count
+        place.update_attributes(:avg_rating => avg_rating)
+      end
     end
   end
-
+  
   # TODO: No idea if this works properly - think not  
   def self.highest_reviewed(limit)
     Place.find(:all, :limit => limit, :order => 'avg_rating DESC')
@@ -104,7 +104,7 @@ class Place < ActiveRecord::Base
   def self.add_missing_country_data
     list = Place.find_all_by_country_id(nil)
     list.each do |place|
-      puts "Found #{place.name}"
+      prints "Found #{place.name}..."
       place_country = Place.get("http://protectedplanet.net/api2/sites/#{place.wdpa_id}")['official']['COUNTRY']
       country_id = Country.find_by_short_name(place_country).id
       place.update_attributes(:country_id => country_id)
@@ -120,6 +120,14 @@ class Place < ActiveRecord::Base
       info = Place.get_info(place.wdpa_id)
       place.update_attributes(:designation => info[1], :reported_area => info[0])
     end
+  end
+  
+  def self.update_everything
+    Place.add_missing_place_data
+    Place.add_missing_country_data
+    Place.update_review_count
+    Place.update_total_rating
+    Place.update_avg_rating    
   end
 end
 
