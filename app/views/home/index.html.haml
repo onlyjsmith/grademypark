@@ -4,7 +4,7 @@
   / POPULAR PLACES
   .chunkybox
     %h2
-      = image_tag "icons/star_fill.png", :title => "star", :class => "logo"
+      = image_tag "icons/star_fill.png", :title => "star", :class => "icon"
       Most popular places
     %table{:style =>'width: 100%'}
       - @places.each do |place|
@@ -20,7 +20,7 @@
   / SEARCH
   .chunkybox
     %h2
-      =image_tag "icons/search.png", :title => "search", :class => "logo"
+      =image_tag "icons/search.png", :title => "search", :class => "icon"
       Search sites to add a new review
     #search
       = render :partial => 'search_form'
@@ -28,7 +28,7 @@
   / ACTIVE REVIEWERS
   .chunkybox
     %h2
-      = image_tag "icons/graph_up.png", :title => "people", :class => "logo"
+      = image_tag "icons/graph_up.png", :title => "people", :class => "icon"
       Most active reviewers
     - @reviewers.each do |reviewer|
       %div
@@ -43,7 +43,7 @@
   / MOST ACTIVE COUNTRIES or SEARCH BY COUNTRY 
   .chunkybox
     %h2{:style => 'margin-bottom: 0px'}
-      = image_tag "icons/country.png", :class => "logo"
+      = image_tag "icons/country.png", :class => "icon"
       Most active countries
       %em (todo)
     %div
@@ -59,7 +59,7 @@
   / RECENT REVIEWS
   .chunkybox
     %h2
-      = image_tag "icons/new.png", :title => "new", :class => "logo"
+      = image_tag "icons/new.png", :title => "new", :class => "icon"
       Recently updated reviews 
     %table{:style => "width: 100%;"}
       - @recent_reviews.each do |review|

@@ -11,7 +11,8 @@
         %div
           / = link_to review.review_text, review
           = link_to short_title(review), review
-          = render_stars(review.rating)
+          %div{:style => "float: right"} 
+            = render_stars(review.rating)
           (#{link_to review.user.username, user_path(review.user)})
       %em
         = link_to (image_tag "icons/plus_sm.png", :title => "add new"), "/reviews/new/#{@reviews.first.place.wdpa_id}" 
@@ -37,10 +38,11 @@
         =image_tag "icons/plus.png", :title => "title", :class => "class"
         Add new review
 
-      %textarea.review{:cols => "30", :rows => "2"}
+      %textarea.review{:cols => "35", :rows => "2"}
         :preserve   
-      = render_stars(3)
-      /TODO Make this review form work!
+      %div{:style => "float: right"}
+        = render_stars(3)
+        /TODO Make this review form work!
 
 .grid_6
   = render 'places/map'

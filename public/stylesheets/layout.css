@@ -168,3 +168,8 @@ h1 a:hover {
 .logo {
 /* TODO: fix positioning of logos position: absolute;*/
 }
+
+.icon {
+  vertical-align: middle;
+  margin-bottom: 7px;
+}
