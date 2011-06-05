@@ -8,7 +8,7 @@ gem 'rails', '3.0.7'
 gem 'sqlite3'
 gem "rake", "0.8.7"
 gem 'httparty'
-gem "yajl-ruby", "~> 0.8.2"
+# gem "yajl-ruby", "~> 0.8.2"
 # gem 'rest-client'
 # gem 'multi_json'
 # gem 'GeoRuby'
