@@ -104,7 +104,7 @@ class Place < ActiveRecord::Base
   def self.add_missing_country_data
     list = Place.find_all_by_country_id(nil)
     list.each do |place|
-      prints "Found #{place.name}..."
+      print "Found #{place.name}..."
       place_country = Place.get("http://protectedplanet.net/api2/sites/#{place.wdpa_id}")['official']['COUNTRY']
       country_id = Country.find_by_short_name(place_country).id
       place.update_attributes(:country_id => country_id)
