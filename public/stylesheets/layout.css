@@ -162,3 +162,7 @@ h1 a:hover {
 	text-decoration: underline;
 	color: blue;
 }
+
+.logo {
+/* TODO: fix positioning of logos position: absolute;*/
+}

@@ -1,7 +1,10 @@
+/ LEFT COLUMN
 .grid_6
+
+  / POPULAR PLACES
   .chunkybox
     %h2
-      = image_tag "icons/star_fill.png", :title => "star"
+      = image_tag "icons/star_fill.png", :title => "star", :class => "logo"
       Most popular places
     %table{:style =>'width: 100%'}
       - @places.each do |place|
@@ -12,30 +15,44 @@
             = render_stars(place.avg_rating)
             (#{place.review_count})
     %div{:style => "text-align: right"} (Number of reviews in brackets)
+
+  / SEARCH
   .chunkybox
     %h2
-      =image_tag "icons/search.png", :title => "search"
+      =image_tag "icons/search.png", :title => "search", :class => "logo"
       Search sites to add a new review
     #search
       = render :partial => 'search_form'
-  / .chunkybox
-  /   %h2
-  /     View parks by country
-  /     %em (todo)
-  /   %em 
-  /     ToDo - add country filters, most popular countries, etc           
+
+  / ACTIVE REVIEWERS
+  .chunkybox
+    %h2
+      = image_tag "icons/graph_up.png", :title => "people", :class => "logo"
+      Most active reviewers
+    - @reviewers.each do |reviewer|
+      %div
+        = link_to reviewer.username, user_path(reviewer.id)
+        has visited 
+        %strong
+          = reviewer.reviews.count
+        places
+
+/ RIGHT COLUMN
 .grid_6
+  / SEARCH BY COUNTRY 
   .chunkybox
     %h2{:style => 'margin-bottom: 0px'}
-      Small map of world 
+      = image_tag "icons/country.png", :class => "logo"
+      Most active countries
       %em (todo)
     %div
       = link_to (image_tag "demo_worldmap.png", :border => '1px #576453', :width => '300px', :title => "title", :class => "class"), root_path
-    %div
-      Clickable 'heatmap' of recent additions, etc
+    %em
+      [Will be a clickable 'heatmap' of recent additions, etc]
+  / RECENT REVIEWS
   .chunkybox
     %h2
-      = image_tag "icons/new.png", :title => "new"
+      = image_tag "icons/new.png", :title => "new", :class => "logo"
       Recently updated reviews 
     %table{:style => "width: 100%;"}
       - @recent_reviews.each do |review|
@@ -46,17 +63,6 @@
           %td{:style => "width: 90px;"}
             = render_stars(review.rating)  
 
-  .chunkybox
-    %h2
-      = image_tag "icons/graph_up.png", :title => "people"
-      Most active reviewers
-    - @reviewers.each do |reviewer|
-      %div
-        = link_to reviewer.username, user_path(reviewer.id)
-        has visited 
-        %strong
-          = reviewer.reviews.count
-        places
     	
   / TODO: Figure out whether this random site box is a good idea
   .chunkybox
