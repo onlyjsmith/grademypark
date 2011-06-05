@@ -4,8 +4,9 @@ body { background-color: #6f806a; color: #333; }
 
 h2 { 
 	color: #576453;
-	padding-bottom: 7px;
-	line-height: 110%; 
+/*  padding-bottom: 7px;*/
+	line-height: 100%;
+	margin: 0px; 
 /*	text-decoration: underline;*/
 }
 
@@ -107,7 +108,8 @@ h1 a:hover {
 
 .boxtitle {
 	background: #c0564a;
-/*	height: 80px;   */
+/*	height: 80px;   */ 
+/*  margin: 0px;*/
 }
 	      
 #search_field {

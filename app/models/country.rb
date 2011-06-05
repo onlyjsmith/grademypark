@@ -1,5 +1,6 @@
 class Country < ActiveRecord::Base
    has_many :places
+   has_many :reviews, :through => :places
 
   def self.import
     destroy_all
@@ -20,7 +21,15 @@ class Country < ActiveRecord::Base
     Country.find_by_short_name("GBR").destroy
   end 
   
+  def self.update_review_counts
+    Country.all.each do |c|
+      c.update_attributes(:review_count => c.reviews.count)
+    end
+  end
+  
   def self.destroy_all
     Country.all.each {|c| c.destroy}
   end
+  
+  
 end

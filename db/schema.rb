@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110605170548) do
+ActiveRecord::Schema.define(:version => 20110605174917) do
 
   create_table "countries", :force => true do |t|
     t.string   "long_name"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(:version => 20110605170548) do
     t.integer  "pa_count"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "review_count"
   end
 
   create_table "places", :force => true do |t|

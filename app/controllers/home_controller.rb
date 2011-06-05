@@ -6,7 +6,7 @@ class HomeController < ApplicationController
     @reviewers = User.all(:limit => 10)
     @recent_reviews = Review.all(:limit => 10, :order => 'updated_at DESC')
     @random_site = "Lake Naivasha"
-    
+    @top_countries = Country.all(:limit => 4, :order => 'review_count DESC')
     respond_to do |format|
       format.html # index.html.erb
       # format.xml  { render :xml => @places }

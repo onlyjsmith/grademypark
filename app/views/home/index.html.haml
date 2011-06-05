@@ -11,10 +11,11 @@
         %tr
           %td
             = link_to place.name, "/places/#{place.id}/place_reviews"
-          %td{:style => 'width: 90px'} 
+          %td{:style => 'width: 100px'} 
             = render_stars(place.avg_rating)
             (#{place.review_count})
-    %div{:style => "text-align: right"} (Number of reviews in brackets)
+    %div{:style => "text-align: right"} 
+      %em (Number of reviews in brackets)
 
   / SEARCH
   .chunkybox
@@ -39,7 +40,7 @@
 
 / RIGHT COLUMN
 .grid_6
-  / SEARCH BY COUNTRY 
+  / MOST ACTIVE COUNTRIES or SEARCH BY COUNTRY 
   .chunkybox
     %h2{:style => 'margin-bottom: 0px'}
       = image_tag "icons/country.png", :class => "logo"
@@ -49,6 +50,12 @@
       = link_to (image_tag "demo_worldmap.png", :border => '1px #576453', :width => '300px', :title => "title", :class => "class"), root_path
     %em
       [Will be a clickable 'heatmap' of recent additions, etc]
+    %div
+      - @top_countries.each do |country|
+        %div
+          = country.long_name.capitalize + " (" + (country.review_count).to_s + ")"
+      %div{:style => "text-align: right"} 
+        %em (Number of reviews in brackets)  
   / RECENT REVIEWS
   .chunkybox
     %h2
