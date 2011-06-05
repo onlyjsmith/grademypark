@@ -2,16 +2,8 @@ class PlacesController < ApplicationController
   # GET /places
   # GET /places.xml
   def index
-    # @places = Place.all
-    @places = Place.most_reviewed
-    @places = Place.highest_reviewed(10)
-    @reviewers = User.all(:limit => 10)
-    @recent_reviews = Review.all(:limit => 10, :order => 'updated_at DESC')
-    @random_site = "Lake Naivasha"
-    # User.all.each do |user|
-    #   user
-    # end
-    
+    @places = Place.all
+
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @places }
@@ -99,13 +91,13 @@ class PlacesController < ApplicationController
     @info = Place.get_info(@place.wdpa_id)    
   end
   
-  def search
-    # @results = ["Search results", "All in here"]
-    concatenated_search_terms = params[:search].split(" ").join("%20")
-    @results = Place.search(concatenated_search_terms)
-    @message = 'Sorry. No results for this search. Try harder.' if @results.blank?
-    render '_search_results' 
-  end
+  # def search
+  #   # @results = ["Search results", "All in here"]
+  #   concatenated_search_terms = params[:search].split(" ").join("%20")
+  #   @results = Place.search(concatenated_search_terms)
+  #   @message = 'Sorry. No results for this search. Try harder.' if @results.blank?
+  #   render '_search_results' 
+  # end                    
   
 
 end

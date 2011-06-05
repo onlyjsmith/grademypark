@@ -8,7 +8,7 @@ Grademypark::Application.routes.draw do
   resources :richcontents
   
   match 'places/:id/place_reviews' => 'places#place_reviews', :as => 'place_reviews'
-  match 'places/search' => 'places#search'
+  match 'home/search' => 'home#search'
   match 'reviews/new/:id' => 'reviews#new_from_search'
   match 'richcontents/new/:id' => 'richcontents#new'
 
@@ -68,7 +68,7 @@ Grademypark::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => "places#index"
+  root :to => "home#index"
 
   # See how all your routes lay out with "rake routes"
 
