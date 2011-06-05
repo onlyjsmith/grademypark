@@ -1,0 +1,50 @@
+.grid_6
+  .chunkybox
+    %p#notice= notice
+    %h2
+      = image_tag "icons/single.png", :title => "single"
+      = link_to "Review of #{@review.place.name}", place_reviews_path(@review.place.id)
+  .chunkybox
+    %div
+      %div
+        Rating
+        = render_stars(@review.rating)
+      %div
+        Wildness
+        = render_stars(@review.wildness)
+      %div
+        Management
+        = render_stars(@review.management)
+    .review.review_box
+      = @review.review_text
+    %em 
+      Review by
+      = link_to @review.user.username, user_path(@review.user_id)
+    %div
+      = image_tag "icons/plus_sm.png", :title => "title", :class => "class"
+      %em
+        = link_to "Add new review for this site", "/reviews/new/#{@review.place.wdpa_id}"
+    %div  
+      = image_tag "icons/pile_sm.png" 
+      %em
+        = link_to "Back to reviews for #{@review.place.name}", "/places/#{@review.place.id}/place_reviews"
+                                                             
+
+  .chunkybox
+    %h2
+      = image_tag "icons/pic.png", :title => "picture"
+      Content linked to this review
+    %div
+      = pluralize(@review.richcontents.count, "piece")
+      of rich content associated with this review
+    - @review.richcontents.each do |piece|
+      %div                                                                
+        = image_tag "icons/world_sm.png", :title => "title", :class => "class"
+        = link_to piece.content_name, "http://#{piece.content_url}"
+    %div
+      = image_tag "icons/pic_sm.png", :title => "title", :class => "class"
+      = link_to "Add new content", "/richcontents/new/#{@review.id}"
+
+.grid_6
+  = render 'places/map'
+  /= render 'places/info'
