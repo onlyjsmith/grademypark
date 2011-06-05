@@ -14,4 +14,5 @@ module ApplicationHelper
       image_tag ("icons/star_fill_sm.png"), {:class => "stars"}
     end.join
   end 
+  
 end
