@@ -41,10 +41,12 @@ class Place < ActiveRecord::Base
   end
   
   def self.get_info(wdpa_id)
+    response = Place.get("http://protectedplanet.net/api2/sites/#{wdpa_id}")
     @data = []
-    @data << Place.get("http://protectedplanet.net/api2/sites/#{wdpa_id}")['official']['REP_AREA']
-    @data << Place.get("http://protectedplanet.net/api2/sites/#{wdpa_id}")['official']['DESIG_ENG']
-    @data << Place.get("http://protectedplanet.net/api2/sites/#{wdpa_id}")['official']['COUNTRY']
+    @data << response['official']['REP_AREA']
+    @data << response['official']['DESIG_ENG']
+    @data << response['official']['COUNTRY']
+    @data << response['official']['NAME']
     @data
   end
 
@@ -98,11 +100,11 @@ class Place < ActiveRecord::Base
   def self.add_missing_country_data
     list = Place.find_all_by_country_id(nil)
     list.each do |place|
-      p = Place.find(place)
-      puts "Found #{p.name}"
-      p.country_id = Country.find_by_short_name(Place.get("http://protectedplanet.net/api2/sites/#{place.wdpa_id}")['official']['COUNTRY']
-      )
-      p.save
+      puts "Found #{place.name}"
+      place_country = Place.get("http://protectedplanet.net/api2/sites/#{place.wdpa_id}")['official']['COUNTRY']
+      country_id = Country.find_by_short_name(place_country).id
+      place.update_attributes(:country_id => country_id)
+      puts "Updated #{place.name} to #{country_id}"
     end
   end
 end

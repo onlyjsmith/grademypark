@@ -46,9 +46,10 @@ class ReviewsController < ApplicationController
     # @review.user_id = @current_user.id
     
     if Place.find_by_wdpa_id(params[:id]).nil?
-      then Place.create(:wdpa_id => (params[:id]), :name => Place.find_name_from_id(params[:id]), :review_count => 1, :total_rating => 1, :avg_rating => 1)
-      # Place.update_total_rating
-      # Place.update_avg_rating
+      info = Place.get_info(params[:id])
+      country_id = Country.find_by_short_name(info[2]).id
+      Place.create(:wdpa_id => (params[:id]), :name => info[3], :country_id => country_id,:review_count => 1, :total_rating => 1, :avg_rating => 1)
+      # Place.create(:wdpa_id => (params[:id]), :name => Place.find_name_from_id(params[:id]), :country_id => ,:review_count => 1, :total_rating => 1, :avg_rating => 1)
     end
     place = Place.find_by_wdpa_id(params[:id])
     
@@ -72,11 +73,9 @@ class ReviewsController < ApplicationController
 
     respond_to do |format|
       if @review.save
-        place = @review.place
-        place.review_count = place.reviews.count
-        place.total_rating += @review.rating
-        place.avg_rating = place.total_rating / place.review_count
-        place.save
+        Place.update_total_rating
+        Place.update_review_count
+        Place.update_avg_rating
         
         format.html { redirect_to(@review, :notice => 'Review was successfully created.') }
         format.xml  { render :xml => @review, :status => :created, :location => @review }
