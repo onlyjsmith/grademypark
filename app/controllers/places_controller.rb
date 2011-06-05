@@ -88,6 +88,7 @@ class PlacesController < ApplicationController
     data = Place.decode(@place.wdpa_id)
     @poly_string = data[0]
     @poly_centre = data[1]
+    @new_review = Review.new(:place_id => params[:id])
   end
   
   # def search

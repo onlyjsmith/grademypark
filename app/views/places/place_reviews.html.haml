@@ -21,6 +21,7 @@
         = link_to (image_tag "icons/open_sm.png", :title => "open"), "http://protectedplanet.net/sites/#{@reviews.first.place.wdpa_id}"
         = link_to "Open in ProtectedPlanet", "http://protectedplanet.net/sites/#{@reviews.first.place.wdpa_id}"                        
 
+  / CONTENT LINKED TO PLACE
   .chunkybox
     .boxheader
       %h2
@@ -32,17 +33,21 @@
         = link_to content.content_name, "http://#{content.content_url}"
         (#{link_to "Review", review_path(content.review_id)})
 
+  / ADD NEW REVIEW
   .chunkybox
     .boxheader
       %h2
         =image_tag "icons/plus.png", :title => "title", :class => "class"
         Add new review
+      / %div{:style => "float: right"}
+      /   = render_stars(3)
+      - form_for @new_review do |f|
+        = f.text_area :review_text, :class => 'review', :cols => '35', :rows => '2'
+        = f.submit "Submit", :disable_with => 'Submiting...'
+      %p Clicking submit will take you to the form (with some errors)
+      / %textarea.review{:cols => "35", :rows => "2"}
+      /   :preserve   
 
-      %textarea.review{:cols => "35", :rows => "2"}
-        :preserve   
-      %div{:style => "float: right"}
-        = render_stars(3)
-        /TODO Make this review form work!
 
 .grid_6
   = render 'places/map'
