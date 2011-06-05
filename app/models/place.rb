@@ -4,12 +4,15 @@ class Place < ActiveRecord::Base
   has_many :richcontents, :through => :reviews
   
   include HTTParty
-  format :json
+
   
   def self.search(search)
     #go off to ProtectedPlanet API and return results
-    results = Place.get("http://protectedplanet.net/api/search?q=#{search}", :format => :json)
+    debugger
+    results = Place.get("http://protectedplanet.net/api/search?q=#{search}")#, :format => :json)
+    # results = RestClient.get "http://protectedplanet.net/api/search?q=#{search}", {:accept => :json}
     @ids = []
+    # results.parsed_response.
     results[0].each do |r|
       @ids << [r['site']['id'], r['site']['cached_slug']]
     end
