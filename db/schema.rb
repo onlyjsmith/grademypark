@@ -10,7 +10,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110604134630) do
+ActiveRecord::Schema.define(:version => 20110605170548) do
+
+  create_table "countries", :force => true do |t|
+    t.string   "long_name"
+    t.string   "short_name"
+    t.integer  "iso_3"
+    t.integer  "pa_count"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "places", :force => true do |t|
     t.string   "name"
@@ -20,6 +29,7 @@ ActiveRecord::Schema.define(:version => 20110604134630) do
     t.integer  "review_count"
     t.integer  "total_rating"
     t.integer  "avg_rating"
+    t.integer  "country_id"
   end
 
   create_table "reviews", :force => true do |t|

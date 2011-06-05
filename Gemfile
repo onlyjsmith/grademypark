@@ -20,6 +20,7 @@ gem 'httparty'
 gem 'haml' 
 gem 'sass'
 gem 'omniauth'
+# gem 'xml-simple'
 
 # Debugging
 # Use unicorn as the web server

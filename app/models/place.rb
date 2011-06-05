@@ -2,6 +2,7 @@ class Place < ActiveRecord::Base
   has_many :reviews
   has_many :users, :through => :reviews   
   has_many :richcontents, :through => :reviews
+  belongs_to :country
   
   include HTTParty
 
@@ -93,7 +94,17 @@ class Place < ActiveRecord::Base
     end
     Place.find(place_id).destroy
   end
-  
+
+  def self.add_missing_country_data
+    list = Place.find_all_by_country_id(nil)
+    list.each do |place|
+      p = Place.find(place)
+      puts "Found #{p.name}"
+      p.country_id = Country.find_by_short_name(Place.get("http://protectedplanet.net/api2/sites/#{place.wdpa_id}")['official']['COUNTRY']
+      )
+      p.save
+    end
+  end
 end
 
 
