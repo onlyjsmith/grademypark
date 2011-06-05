@@ -1,0 +1,17 @@
+%h1 Done with HAML
+= form_for(@richcontent) do |f|
+  = if @richcontent.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@richcontent.errors.count, "error")
+        prohibited this richcontent from being saved:
+      %ul
+        - @richcontent.errors.full_messages.each do |msg|
+          %li= msg
+  = f.label :content_name, "Title of content"
+  = f.text_field :content_name
+  %br/
+  = f.label :content_url, "Url for content"
+  = f.text_field :content_url
+  %br/
+  = f.submit   
