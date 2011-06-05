@@ -1,7 +1,7 @@
 namespace :gmp do
   desc "get up and running"
   task :build  => :environment do
-     Rake::Task["gmp:destroy_users"].invoke
+     Rake::Task["gmp:import"].invoke
   end
   
   desc "fill in missing pieces"
