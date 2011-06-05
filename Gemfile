@@ -17,7 +17,8 @@ gem 'httparty'
 # gem 'geokit'
 # gem 'geo_ruby'
 # gem 'rgeo'
-gem 'haml'
+gem 'haml' 
+gem 'sass'
 gem 'omniauth'
 
 # Debugging

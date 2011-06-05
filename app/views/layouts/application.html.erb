@@ -11,7 +11,7 @@
 
 <div class="container clearfix"> 
 	<div class="grid_12">
-		<div id="login">
+		<div id="login" style="text-align: right; margin-right: 8px">
 			<% if current_user %>
 			  Welcome <%= current_user.username %>!
 			  <%= link_to "Sign Out", signout_path %>
