@@ -25,7 +25,7 @@ namespace :gmp do
   end
   
   desc "update country scores"
-  task :update_country_score => :environment do
+  task :update_country_scores => :environment do
     Country.update_review_count
   end
   
