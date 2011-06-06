@@ -2,12 +2,22 @@
   .chunkybox
     %h2
       = image_tag "icons/search.png", :title => "search results"
-      Search results
-    - @results.each do |result|
-      %div{:style => 'text-decoration: none'}
-        = link_to (image_tag "icons/plus_sm.png", :title => "plus"), "/reviews/new/#{result[0]}"
-        = link_to "New review for #{result[1]}", "/reviews/new/#{result[0]}"
-
+      Search results 
+      %h3
+        These are places already reviewed
+      %div
+        - @results_local.each do |result|
+          %div{:style => 'text-decoration: none'}
+            = link_to (image_tag "icons/plus_sm.png", :title => "plus"), "/reviews/new/#{result[0]}"
+            = link_to "New review for #{result.name+" "+result.designation}", "/reviews/new/#{result.wdpa_id}"
+      %h3
+        These are places no-one's reviewed
+      %div
+        - @results_api.each do |result|
+          %div{:style => 'text-decoration: none'}
+            = link_to (image_tag "icons/plus_sm.png", :title => "plus"), "/reviews/new/#{result[0]}"
+            = link_to "New review for #{result[1]}", "/reviews/new/#{result[0]}"
+      
     = @message
 
 / TODO: Figure out whether random sites is a good idea...

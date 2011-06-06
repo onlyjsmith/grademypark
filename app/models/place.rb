@@ -7,17 +7,17 @@ class Place < ActiveRecord::Base
   include HTTParty
 
   
-  def self.search(search)
+  def self.search_api(search)
     #go off to ProtectedPlanet API and return results
     # debugger
     results = Place.get("http://protectedplanet.net/api/search?q=#{search}", :format => :json)
     # results = RestClient.get "http://protectedplanet.net/api/search?q=#{search}", {:accept => :json}
-    @ids = []
+    data = []
     # results.parsed_response.
     results[0].each do |r|
-      @ids << [r['site']['id'], r['site']['cached_slug']]
+      data << [r['site']['id'], r['site']['cached_slug']]
     end
-    return @ids
+    return data
   end
   
   def self.find_name_from_id(id)
