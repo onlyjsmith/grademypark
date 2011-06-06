@@ -49,9 +49,8 @@ class ReviewsController < ApplicationController
       info = Place.get_info(params[:id])
       country_id = Country.find_by_short_name(info[2]).id
       Place.create(:wdpa_id => (params[:id]), :name => info[3], :country_id => country_id,:review_count => 1, :total_rating => 1, :avg_rating => 1)
-      # Place.create(:wdpa_id => (params[:id]), :name => Place.find_name_from_id(params[:id]), :country_id => ,:review_count => 1, :total_rating => 1, :avg_rating => 1)
       Place.update_scores
-      Country.update_review_counts
+      Country.update_review_count
     end
     place = Place.find_by_wdpa_id(params[:id])
     
@@ -78,6 +77,7 @@ class ReviewsController < ApplicationController
         Place.update_total_rating
         Place.update_review_count
         Place.update_avg_rating
+        Country.update_review_count
         
         format.html { redirect_to(@review, :notice => 'Review was successfully created.') }
         format.xml  { render :xml => @review, :status => :created, :location => @review }

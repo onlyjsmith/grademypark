@@ -19,7 +19,7 @@ class Country < ActiveRecord::Base
     Country.find_by_short_name("GBR").destroy
   end 
   
-  def self.update_review_counts
+  def self.update_review_count
     Country.all.each do |c|
       c.update_attributes(:review_count => c.reviews.count)
     end
