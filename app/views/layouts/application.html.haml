@@ -9,13 +9,17 @@
   %body{:onload => "initialize()"}
     .container.clearfix
       .grid_12
-        #login{:style => "text-align: right; margin-right: 8px"}
-        - if current_user
-          Welcome #{current_user.username}!
-          = link_to "Sign Out", signout_path
-        - else
-          = link_to "Sign in with Twitter", "/auth/twitter"
-          = link_to "Sign in with Facebook", "/auth/facebook"
+        %div
+          #login{:style => "text-align: right; margin-right: 8px; "}
+            %strong{:style => "color: white;" }
+              Site is very beta!
+            - if current_user
+              Welcome #{current_user.username}!
+              = link_to "Sign Out", signout_path
+            - else
+              = link_to "Sign in with Twitter", "/auth/twitter"
+              = link_to "Sign in with Facebook", "/auth/facebook" 
+
         .boxtitle.chunkybox
           = link_to (image_tag "logo/logo2_20.png", :class => 'icon2'), root_path
           %h1
@@ -28,5 +32,6 @@
 
     .grid_12
       .footer
-        This works in #{Time.now.year}, and feeds off
+        = mail_to 'gmp@impacti.org'
+        | This works in #{Time.now.year}, and feeds off
         = link_to "ProtectedPlanet", "http://protectedplanet.net"

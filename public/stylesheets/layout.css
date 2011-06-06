@@ -174,3 +174,7 @@ h1 a:hover {
   vertical-align: middle;
   margin-bottom: 7px;
 }
+
+#login a {
+  color: white;
+}
