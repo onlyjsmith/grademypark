@@ -50,6 +50,8 @@ class ReviewsController < ApplicationController
       country_id = Country.find_by_short_name(info[2]).id
       Place.create(:wdpa_id => (params[:id]), :name => info[3], :country_id => country_id,:review_count => 1, :total_rating => 1, :avg_rating => 1)
       # Place.create(:wdpa_id => (params[:id]), :name => Place.find_name_from_id(params[:id]), :country_id => ,:review_count => 1, :total_rating => 1, :avg_rating => 1)
+      Place.update_scores
+      Country.update_review_counts
     end
     place = Place.find_by_wdpa_id(params[:id])
     

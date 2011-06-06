@@ -129,6 +129,12 @@ class Place < ActiveRecord::Base
     Place.update_total_rating
     Place.update_avg_rating    
   end
+  
+  def self.update_scores
+    Place.update_review_count
+    Place.update_total_rating
+    Place.update_avg_rating    
+  end
 end
 
 
