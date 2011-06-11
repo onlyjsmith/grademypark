@@ -1,45 +1,46 @@
 /* FROM SCAFFOLD.CSS*/
+/*body { background-color: #6f806a; color: #333; } */
+body {
+  background-color: #576453;
+  color: #333; }
 
-body { background-color: #6f806a; color: #333; }
-
-h2 { 
-	color: #576453;
-/*  padding-bottom: 7px;*/
-	line-height: 100%;
-	margin: 0px; 
-/*	text-decoration: underline;*/
-}
+h2 {
+  color: #576453;
+  /*  padding-bottom: 7px;*/
+  line-height: 100%;
+  margin: 0px;
+  /*	text-decoration: underline;*/ }
 
 body, p, ol, ul, td {
-/*  font-family: ;*/
+  /*  font-family: ;*/
   font-family: helvetica, arial, sans-serif;
-  font-size:   14px;
-  line-height: 18px;
-}
+  font-size: 14px;
+  line-height: 18px; }
 
 pre {
   background-color: #eee;
   padding: 10px;
-  font-size: 11px;
-}
+  font-size: 11px; }
 
-a { color: #000; }
-a:visited { color: #666; }
-a:hover { color: #576453;}
+a {
+  color: #000; }
+
+a:visited {
+  color: #666; }
+
+a:hover {
+  color: #576453; }
 
 div.field, div.actions {
-  margin-bottom: 10px;
-}
+  margin-bottom: 10px; }
 
 #notice {
-  color: green;
-}
+  color: green; }
 
 .field_with_errors {
   padding: 2px;
   background-color: red;
-  display: table;
-}
+  display: table; }
 
 #error_explanation {
   width: 450px;
@@ -47,8 +48,7 @@ div.field, div.actions {
   padding: 7px;
   padding-bottom: 0;
   margin-bottom: 20px;
-  background-color: #f0f0f0;
-}
+  background-color: #f0f0f0; }
 
 #error_explanation h2 {
   text-align: left;
@@ -58,123 +58,100 @@ div.field, div.actions {
   margin: -7px;
   margin-bottom: 0px;
   background-color: #c00;
-  color: #fff;
-}
+  color: #fff; }
 
 #error_explanation ul li {
   font-size: 12px;
-  list-style: square;
-}
+  list-style: square; }
 
 h1 a {
-	text-decoration: none;
-}
+  text-decoration: none; }
+
 h1 a:visited {
-/*	background: black;*/
-	color: white;   
-/*	border-bottom: 1px solid #999;   */  
-	text-decoration: none;
-}
+  /*	background: black;*/
+  color: white;
+  /*	border-bottom: 1px solid #999;   */
+  text-decoration: none; }
 
 h1 a:hover {
-	color: 	#dac2aa;
-	text-decoration: none;
-}  
+  color: #dac2aa;
+  text-decoration: none; }
 
 /*CUSTOM CSS*/
-
 /*#main {
 	margin-top: 40px;
 	margin-left: 50px;
 }*/
-
 #map_canvas {
-	border: 1px solid #999;
-	height: 400px;
-	width: 90%;    
-	
-/*	background: red;*/
-	}
-	
+  border: 1px solid #999;
+  height: 400px;
+  width: 90%;
+  /*	background: red;*/ }
+
 .chunkybox {
-	border: 1px solid #576453;
-	margin: 7px;
-	padding: 10px;
-/*	-moz-box-shadow: 3px 3px 4px #000;
-	-webkit-box-shadow: 3px 3px 4px #000;
-	box-shadow: 3px 3px 4px #000;      */
-	background-color: #ded7cf;
-}
+  border: 1px solid #576453;
+  margin: 7px;
+  padding: 10px;
+  /*  -moz-box-shadow: 3px 3px 4px $shadow;
+    -webkit-box-shadow: 3px 3px 4px $shadow;
+    box-shadow: 3px 3px 4px $shadow;  */
+  background-color: #ded7cf; }
 
 .boxtitle {
-	background: #c0564a;
-/*	height: 80px;   */ 
-/*  margin: 0px;*/
-}
-	      
+  background: #c0564a;
+  /*	height: 80px;   */
+  /*  margin: 0px;*/ }
+
 #search_field {
-	font: 16px "Lucida Grande", "Trebuchet MS", Verdana, sans-serif;
-}
+  font: 16px "Lucida Grande", "Trebuchet MS", Verdana, sans-serif; }
 
 .review {
-	font-size: 18px;
-}
+  font-size: 18px; }
 
 .review_box {
-	border: 1px solid; 
-	padding: 5px;
-	background: white;
-	margin-bottom: 5px;
-}       
+  border: 1px solid;
+  padding: 5px;
+  background: white;
+  margin-bottom: 5px; }
 
 .icon2 {
-	float:left;
-/*	margin: 10px;*/  
-	margin-right: 10px;
-}
+  float: left;
+  /*	margin: 10px;*/
+  margin-right: 10px; }
 
 #reviews_list {
-	margin-left: 15px;
-	margin-bottom: 30px;
-}     
+  margin-left: 15px;
+  margin-bottom: 30px; }
 
 .stars {
-  float: left;
-}
+  float: left; }
 
 .right_border {
-	border-right: 1px solid #999;
-} 
+  border-right: 1px solid #999; }
 
 .footer {
-	background-color: #576453;
-	margin: 7px; 
-	padding: 5px;
-	text-align:right;
-	color: white;
-	font-size: 12px; 
-	border: 1px solid #999;
-}
+  background-color: #576453;
+  margin: 7px;
+  padding: 5px;
+  text-align: right;
+  color: white;
+  font-size: 12px;
+  border: 1px solid #999; }
 
 .footer a:visited {
-	color:white;
-	text-decoration: none;
-}
+  color: white;
+  text-decoration: none; }
 
 .footer a:hover {
-	text-decoration: underline;
-	color: blue;
-}
+  text-decoration: underline;
+  color: blue; }
 
 .logo {
-/* TODO: fix positioning of logos position: absolute;*/
-}
+  /* TODO: fix positioning of logos position: absolute;*/ }
 
 .icon {
   vertical-align: middle;
-  margin-bottom: 7px;
-}
+  margin-bottom: 7px; }
 
 #login a {
-  color: white;
-}
+  color: white; }

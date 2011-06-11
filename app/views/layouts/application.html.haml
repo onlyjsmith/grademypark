@@ -30,8 +30,8 @@
           Find one that's not been visited.
       = yield
 
-    .grid_12
-      .footer
-        = mail_to 'gmp@impacti.org'
-        | This works in #{Time.now.year}, and feeds off
-        = link_to "ProtectedPlanet", "http://protectedplanet.net"
+      .grid_12
+        .footer
+          = mail_to 'gmp@impacti.org'
+          | This works in #{Time.now.year}, and feeds off
+          = link_to "ProtectedPlanet", "http://protectedplanet.net"

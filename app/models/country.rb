@@ -2,6 +2,7 @@ class Country < ActiveRecord::Base
    has_many :places
    has_many :reviews, :through => :places
 
+  # Make sure you clear out the Country table before doing the import
   def self.import
     include HTTParty 
     # data = HTTParty.get("http://protectedplanet.net/api/countries")

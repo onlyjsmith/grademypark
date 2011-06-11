@@ -1,0 +1,186 @@
+/* FROM SCAFFOLD.CSS*/
+                          
+$background: #576453;
+$light: #d7d0c9;
+$green: #6f806a; 
+$shadow: #b9b9b9;
+
+/*body { background-color: #6f806a; color: #333; } */
+body { background-color: $background; color: #333; } 
+
+h2 { 
+	color: #576453;
+/*  padding-bottom: 7px;*/
+	line-height: 100%;
+	margin: 0px; 
+/*	text-decoration: underline;*/
+}
+
+body, p, ol, ul, td {
+/*  font-family: ;*/
+  font-family: helvetica, arial, sans-serif;
+  font-size:   14px;
+  line-height: 18px;
+}
+
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}
+
+a { color: #000; }
+a:visited { color: #666; }
+a:hover { color: #576453;}
+
+div.field, div.actions {
+  margin-bottom: 10px;
+}
+
+#notice {
+  color: green;
+}
+
+.field_with_errors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+#error_explanation {
+  width: 450px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+
+#error_explanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  margin-bottom: 0px;
+  background-color: #c00;
+  color: #fff;
+}
+
+#error_explanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
+
+h1 a {
+	text-decoration: none;
+}
+h1 a:visited {
+/*	background: black;*/
+	color: white;   
+/*	border-bottom: 1px solid #999;   */  
+	text-decoration: none;
+}
+
+h1 a:hover {
+	color: 	#dac2aa;
+	text-decoration: none;
+}  
+
+/*CUSTOM CSS*/
+
+/*#main {
+	margin-top: 40px;
+	margin-left: 50px;
+}*/
+
+#map_canvas {
+	border: 1px solid #999;
+	height: 400px;
+	width: 90%;    
+	
+/*	background: red;*/
+	}
+	
+.chunkybox {
+	border: 1px solid #576453;
+	margin: 7px;
+	padding: 10px;
+/*  -moz-box-shadow: 3px 3px 4px $shadow;
+  -webkit-box-shadow: 3px 3px 4px $shadow;
+  box-shadow: 3px 3px 4px $shadow;  */         
+	background-color: #ded7cf;
+}
+
+.boxtitle {
+	background: #c0564a;
+/*	height: 80px;   */ 
+/*  margin: 0px;*/
+}
+	      
+#search_field {
+	font: 16px "Lucida Grande", "Trebuchet MS", Verdana, sans-serif;
+}
+
+.review {
+	font-size: 18px;
+}
+
+.review_box {
+	border: 1px solid; 
+	padding: 5px;
+	background: white;
+	margin-bottom: 5px;
+}       
+
+.icon2 {
+	float:left;
+/*	margin: 10px;*/  
+	margin-right: 10px;
+}
+
+#reviews_list {
+	margin-left: 15px;
+	margin-bottom: 30px;
+}     
+
+.stars {
+  float: left;
+}
+
+.right_border {
+	border-right: 1px solid #999;
+} 
+
+.footer {
+	background-color: #576453;
+	margin: 7px; 
+	padding: 5px;
+	text-align:right;
+	color: white;
+	font-size: 12px; 
+	border: 1px solid #999;
+}
+
+.footer a:visited {
+	color:white;
+	text-decoration: none;
+}
+
+.footer a:hover {
+	text-decoration: underline;
+	color: blue;
+}
+
+.logo {
+/* TODO: fix positioning of logos position: absolute;*/
+}
+
+.icon {
+  vertical-align: middle;
+  margin-bottom: 7px;
+}
+
+#login a {
+  color: white;
+}
