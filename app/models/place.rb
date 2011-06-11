@@ -130,10 +130,21 @@ class Place < ActiveRecord::Base
     Place.update_avg_rating    
   end
   
-  def self.update_scores
+  def self.update_all_scores
     Place.update_review_count
     Place.update_total_rating
     Place.update_avg_rating    
+  end  
+  
+  def self.add_and_update_one(review_id)
+    review = Review.find(review_id)
+    place = review.place
+    place.review_count += 1
+    place.total_rating += review.rating
+    place.avg_rating = (place.total_rating / place.review_count)
+    place.save
+    puts "Place #{place.id} scores updated"
+    
   end
 end
 

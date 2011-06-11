@@ -3,8 +3,8 @@ class ReviewsController < ApplicationController
   # GET /reviews.xml
   def index
     @reviews = Review.all
-    Place.update_total_rating
-    Place.update_avg_rating
+    # Place.update_total_rating
+    # Place.update_avg_rating
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @reviews }
@@ -28,31 +28,31 @@ class ReviewsController < ApplicationController
 
   # GET /reviews/new
   # GET /reviews/new.xml
-  def new
-    logger.info("PARAMS: #{params.inspect}")
-    @review = Review.new
-    @review.user_id = @current_user.id
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @review }
-    end
-  end
+  # def new
+  #   logger.info("PARAMS: #{params.inspect}")
+  #   @review = Review.new
+  #   @review.user_id = @current_user.id
+  # 
+  #   respond_to do |format|
+  #     format.html # new.html.erb
+  #     format.xml  { render :xml => @review }
+  #   end
+  # end      
   
-  def new_from_search
+  def new
     logger.info("PARAMS: #{params.inspect}")
     @review = Review.new
     @review.user_id = 2
     # @review.user_id = @current_user.id
     
-    if Place.find_by_wdpa_id(params[:id]).nil?
-      info = Place.get_info(params[:id])
+    if Place.find_by_wdpa_id(params[:wdpa_id]).nil?
+      info = Place.get_info(params[:wdpa_id])
       country_id = Country.find_by_short_name(info[2]).id
-      Place.create(:wdpa_id => (params[:id]), :name => info[3], :country_id => country_id,:review_count => 1, :total_rating => 1, :avg_rating => 1)
-      Place.update_scores
-      Country.update_review_count
+      Place.create(:wdpa_id => (params[:wdpa_id]), :name => info[3], :country_id => country_id,:review_count => 1, :total_rating => 1, :avg_rating => 1)
+      Place.update_one(@review.place_id)
+      Country.update_one(@review.place_id)
     end
-    place = Place.find_by_wdpa_id(params[:id])
+    place = Place.find_by_wdpa_id(params[:wdpa_id])
     
     @review.place_id = place.id
     
@@ -74,15 +74,13 @@ class ReviewsController < ApplicationController
 
     respond_to do |format|
       if @review.save
-        Place.update_total_rating
-        Place.update_review_count
-        Place.update_avg_rating
-        Country.update_review_count
+        Place.add_and_update_one(@review.id)  
+        Country.add_and_update_one(@review.place_id)
         
         format.html { redirect_to(@review, :notice => 'Review was successfully created.') }
         format.xml  { render :xml => @review, :status => :created, :location => @review }
       else
-        format.html { render :action => "new_from_search" }
+        format.html { render :action => "new" }
         format.xml  { render :xml => @review.errors, :status => :unprocessable_entity }
       end
     end

@@ -19,7 +19,7 @@ class Country < ActiveRecord::Base
     Country.find_by_short_name("GBR").destroy
   end 
   
-  def self.update_review_count
+  def self.update_all_review_count
     Country.all.each do |c|
       c.update_attributes(:review_count => c.reviews.count)
     end
@@ -32,7 +32,13 @@ class Country < ActiveRecord::Base
   
   def self.update_everything
     Country.import
-    Country.update_review_counts
+    Country.update_all_review_count
+  end    
+  
+  def self.add_and_update_one(place_id)
+    country = Country.find(Place.find(place_id).country.id)
+    country.review_count += 1
+    country.save
   end
   
 end

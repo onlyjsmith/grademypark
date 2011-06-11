@@ -41,7 +41,7 @@
         Add new review
       / %div{:style => "float: right"}
       /   = render_stars(3)
-      - form_for @new_review do |f|
+      = form_for @new_review do |f|
         = f.text_area :review_text, :class => 'review', :cols => '35', :rows => '2'
         = f.submit "Submit", :disable_with => 'Submiting...'
       %p Clicking submit will take you to the form (with some errors)
