@@ -30,7 +30,7 @@
     - @place.richcontents.each do |content|
       %div
         = image_tag "icons/world_sm.png", :title => "small world - link"
-        = link_to content.content_name, "http://#{content.content_url}"
+        = link_to content.content_name, "http://#{content.prefix+content.content_url}"
         (#{link_to "Review", review_path(content.review_id)})
 
   / ADD NEW REVIEW
