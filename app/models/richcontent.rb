@@ -2,6 +2,7 @@ class Richcontent < ActiveRecord::Base
   belongs_to :review
   
   validates_presence_of :review_id, :on => :create, :message => "Needs to be linked to a review"
+  # TODO: make the URL checking work
   # validates_format_of :content_url, :with => URI::regexp(%w(http https)), :message => "Doesn't look like a real web address"
   # Outline for content_type
   # 1 Picture/image/photo
