@@ -25,9 +25,8 @@ class RichcontentsController < ApplicationController
   # GET /richcontents/new.xml
   def new
     @richcontent = Richcontent.new
-    @richcontent.content_type = 2
     @richcontent.review_id = Review.find(params[:id]).id
-
+    # logger.info @richcontent.inspect
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @richcontent }
@@ -44,6 +43,17 @@ class RichcontentsController < ApplicationController
   # POST /richcontents.xml
   def create
     @richcontent = Richcontent.new(params[:richcontent])
+
+    @richcontent.content_type = 2
+    logger.info params
+
+    if @richcontent.content_url.scan(/https?:\/\//).empty?
+      @richcontent.prefix = "http://"
+    else
+      split = @richcontent.content_url.split("://")
+      @richcontent.prefix = split[0] + "://"
+      @richcontent.content_url = split[1]
+    end
 
     respond_to do |format|
       if @richcontent.save

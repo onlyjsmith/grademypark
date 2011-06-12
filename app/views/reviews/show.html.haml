@@ -43,7 +43,7 @@
     - @review.richcontents.each do |piece|
       %div                                                                
         = image_tag "icons/world_sm.png", :title => "title", :class => "class"
-        = link_to piece.content_name, "http://#{piece.content_url}"
+        = link_to piece.content_name, "http://#{piece.prefix+piece.content_url}"
     %div
       = image_tag "icons/pic_sm.png", :title => "title", :class => "class"
       = link_to "Add new content", "/richcontents/new/#{@review.id}"
