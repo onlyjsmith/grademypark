@@ -7,27 +7,27 @@ namespace :gmp do
   desc "fill in missing pieces"
   task :import => :environment do
     Country.import
-    Country.update_review_count
+    Country.update_all_review_count
     Place.add_missing_place_data
     Place.add_missing_country_data
     Place.update_review_count
     Place.update_total_rating
     Place.update_avg_rating
-    puts "Has added bunches of stuff"
+    puts "Has added bunches of stuff to Place and Country"
   end
   
-  desc "update_place_scores"
-  task :update_place_scores  => :environment do
+  desc "update_all_place_scores"
+  task :update_all_place_scores  => :environment do
     Place.update_review_count
     Place.update_total_rating
     Place.update_avg_rating
-    puts "Has updated scores for Place successfully"
+    puts "Has updated scores for all Places successfully"
   end
   
   desc "update country scores"
   task :update_country_scores => :environment do
-    Country.update_review_count
-    puts "Has updated scores for Country successfully"
+    Country.update_all_review_count
+    puts "Has updated scores for all Countries successfully"
   end
   
 end

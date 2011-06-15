@@ -10,6 +10,12 @@
       </ul>
     </div>
   <% end %>
+
+  <div class="field">
+    <%= f.label "Your review" %><br />
+	<%= f.text_area :review_text, :class => 'review', :size=> '40x6' %>
+  </div>                                                                 
+
 <table>
 <tr>
 	<td><b>Overall rating 1-5 stars</b></td>
@@ -17,51 +23,20 @@
 	<td><b>Management 1-5 stars</b></td>
 </tr>
 <tr>
-	<td><%= f.text_field :rating %></td>
-  	<td><%= f.text_field :wildness %></td>
-  	<td><%= f.text_field :management %></td>
+	<td><%= f.text_field :rating, :size => '3' %></td>
+  	<td><%= f.text_field :wildness, :size => '3' %></td>
+  	<td><%= f.text_field :management, :size => '3' %></td>
 </tr>
 </table>
 <br/>
 
-<!-- 
   <div class="field">
-    <%= f.label "Overall rating 1-5 stars" %><br />
-    <%= f.text_field :rating %>
-  </div>
-  <div class="field">
-    <%= f.label "Wildness 1-5 stars" %><br />
-    <%= f.text_field :wildness %>
-  </div>
-  <div class="field">
-    <%= f.label "Management 1-5 stars" %><br />
-    <%= f.text_field :management %>
-  </div> -->
-  <div class="field">
-    <%= f.label "Your review" %><br />
-	<%= f.text_area :review_text %>
-  </div>
-  <!-- <div class="field">
-    <%= f.label "Site contact details" %><br />
-    <%= f.text_field :contact_details %>
-  </div> -->
-
-  <div class="field">
-    <!-- <%= f.label :user_id %><br /> -->
     <%= f.hidden_field :user_id, :value => @review.user_id %>
   </div>
   <div class="field">
-    <%= f.label :place_id %><br />
-    <%= f.text_field :place_id %>
+    <%= f.hidden_field :place_id, :value => @review.place_id %>
   </div>
 
-
-
-
-  <!-- <div class="field">
-    <%= f.label :review_value %><br />
-    <%= f.text_field :review_value %>
-  </div> -->
   <div class="actions">
     <%= f.submit %>
   </div>

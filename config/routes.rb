@@ -13,7 +13,9 @@ Grademypark::Application.routes.draw do
   
   match 'places/:id/place_reviews' => 'places#place_reviews', :as => 'place_reviews'
   match 'home/search' => 'home#search'
-  match 'reviews/new/:id' => 'reviews#new_from_search'
+
+  # Create new review from wdpa_id
+  match 'reviews/new/:wdpa_id' => 'reviews#new'
   match 'richcontents/new/:id' => 'richcontents#new'
 
   match "/auth/:provider/callback" => "sessions#create"

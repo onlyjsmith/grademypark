@@ -90,14 +90,4 @@ class PlacesController < ApplicationController
     @poly_centre = data[1]
     @new_review = Review.new(:place_id => params[:id])
   end
-  
-  # def search
-  #   # @results = ["Search results", "All in here"]
-  #   concatenated_search_terms = params[:search].split(" ").join("%20")
-  #   @results = Place.search(concatenated_search_terms)
-  #   @message = 'Sorry. No results for this search. Try harder.' if @results.blank?
-  #   render '_search_results' 
-  # end                    
-  
-
 end
