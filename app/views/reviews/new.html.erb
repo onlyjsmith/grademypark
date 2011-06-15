@@ -1,7 +1,8 @@
 <div class="grid_6">    
 	<div class="chunkybox">
 		<h2>Add a new review for <%= @review.place.name %></h2>
-			<%= render 'form' %>
+      <!-- <%= render 'form' %> -->
+      <%= render 'rating_form' %>
 
 			<%= link_to 'Back', reviews_path %>
 	</div>

@@ -1,8 +1,8 @@
 class User < ActiveRecord::Base
   has_many :reviews
   has_many :places, :through => :reviews
-  has_many :ratings
-  has_many :rated_places, :through => :ratings, :source => :places
+  has_many :starratings
+  has_many :rated_reviews, :through => :starratings, :source => :reviews
 
 
   def self.create_with_omniauth(auth)

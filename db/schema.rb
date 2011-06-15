@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110615143036) do
+ActiveRecord::Schema.define(:version => 20110615144056) do
 
   create_table "countries", :force => true do |t|
     t.string   "long_name"
@@ -35,15 +35,6 @@ ActiveRecord::Schema.define(:version => 20110615143036) do
     t.float    "reported_area"
   end
 
-  create_table "ratings", :force => true do |t|
-    t.integer  "user_id"
-    t.integer  "place_id"
-    t.integer  "aspect"
-    t.integer  "value"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "reviews", :force => true do |t|
     t.integer  "rating"
     t.integer  "wildness"
@@ -65,6 +56,16 @@ ActiveRecord::Schema.define(:version => 20110615143036) do
     t.datetime "updated_at"
     t.string   "content_type"
     t.string   "prefix"
+  end
+
+  create_table "starratings", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "place_id"
+    t.integer  "aspect"
+    t.integer  "value"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "review_id"
   end
 
   create_table "users", :force => true do |t|

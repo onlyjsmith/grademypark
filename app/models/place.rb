@@ -2,8 +2,8 @@ class Place < ActiveRecord::Base
   has_many :reviews
   has_many :users, :through => :reviews   
   has_many :richcontents, :through => :reviews
-  has_many :ratings
-  has_many :raters, :through => :ratings, :source => :users
+  has_many :starratings, :through => :reviews
+  # has_many :starraters, :through => :starratings, :source => :users
   
   belongs_to :country
   
