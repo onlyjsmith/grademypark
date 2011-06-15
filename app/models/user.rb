@@ -1,6 +1,9 @@
 class User < ActiveRecord::Base
   has_many :reviews
   has_many :places, :through => :reviews
+  has_many :ratings
+  has_many :rated_places, :through => :ratings, :source => :places
+
 
   def self.create_with_omniauth(auth)
     create! do |user|

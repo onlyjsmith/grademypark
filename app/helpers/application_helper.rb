@@ -14,5 +14,13 @@ module ApplicationHelper
       image_tag ("icons/star_fill_sm.png"), {:class => "stars"}
     end.join
   end 
+
+  def rating_ballot
+      if @rating = current_user.ratings.find_by_place_id(params[:id])
+          @rating
+      else
+          current_user.ratings.new
+      end
+  end
   
 end

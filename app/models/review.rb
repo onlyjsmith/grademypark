@@ -2,6 +2,9 @@ class Review < ActiveRecord::Base
   belongs_to :user
   belongs_to :place
   has_many :richcontents
+  # has_many :ratings
+  # has_many :raters
+
 
   # validates_associated :places
   validates_numericality_of :rating, :only_integer => true, :greater_than => 0, :less_than => 6, :message => 'Between 1 and 5'

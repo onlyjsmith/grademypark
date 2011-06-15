@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110612164819) do
+ActiveRecord::Schema.define(:version => 20110615143036) do
 
   create_table "countries", :force => true do |t|
     t.string   "long_name"
@@ -33,6 +33,15 @@ ActiveRecord::Schema.define(:version => 20110612164819) do
     t.integer  "country_id"
     t.string   "designation"
     t.float    "reported_area"
+  end
+
+  create_table "ratings", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "place_id"
+    t.integer  "aspect"
+    t.integer  "value"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "reviews", :force => true do |t|
