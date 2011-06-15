@@ -40,11 +40,11 @@ class ReviewsController < ApplicationController
   # end      
   
   def new
-    logger.info("PARAMS: #{params.inspect}")
+    # logger.info("PARAMS: #{params.inspect}")
     @review = Review.new
-    @review.user_id = 2
-    # @review.user_id = @current_user.id
-    
+    # @review.user_id = 2
+    @review.user_id = current_user.id
+    puts "Review id is > #{@review.id}" 
     if Place.find_by_wdpa_id(params[:wdpa_id]).nil?
       info = Place.get_info(params[:wdpa_id])
       country_id = Country.find_by_short_name(info[2]).id

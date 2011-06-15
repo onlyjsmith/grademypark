@@ -2,8 +2,8 @@
 	<div class="chunkybox">
 		<h2>Add a new review for <%= @review.place.name %></h2>
       <!-- <%= render 'form' %> -->
-      <%= render 'rating_form' %>
-
+      <%= render 'rating_form', :object => @review %>
+      <%= "Review id is > #{@review.id}" %>
 			<%= link_to 'Back', reviews_path %>
 	</div>
 </div>    
@@ -11,6 +11,6 @@
 <div class="grid_6">    
 	<div class="chunkybox">    
     <%= logger.info 'new' %>
-		<%= render 'places/map'%><!-- # , :locals => {:fish => :true} %> -->
+		<%# render 'places/map'%><!-- # , :locals => {:fish => :true} %> -->
 	</div>
 </div>

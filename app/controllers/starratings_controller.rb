@@ -19,7 +19,7 @@ class StarratingsController < ApplicationController
   end
 
   def update
-    logger.info "Params #{params}"
+    # logger.info "Params #{params}"
     @review = Review.find_by_id(params[:review_id])
     # logger.info current_user.username
     if current_user.id == @review.id
