@@ -16,10 +16,10 @@ class Review < ActiveRecord::Base
 
   def average_rating
     @value = 0
-    self.ratings.each do |rating|
+    self.starratings.each do |rating|
       @value = @value + rating.value
     end
-    @total = self.ratings.size
+    @total = self.starratings.size
     @value.to_f / @total.to_f
   end
 

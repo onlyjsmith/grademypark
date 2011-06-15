@@ -7,7 +7,7 @@ Grademypark::Application.routes.draw do
   
   resources :richcontents
 
-  
+  resources :starratings
   match 'places/:id/place_reviews' => 'places#place_reviews', :as => 'place_reviews'
   match 'home/search' => 'home#search'
 
