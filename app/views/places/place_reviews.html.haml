@@ -30,6 +30,7 @@
     - @place.richcontents.each do |content|
       %div
         = image_tag "icons/world_sm.png", :title => "small world - link"
+        / TODO: would be good to put this richcontent prefix stuff somewhere in the model instead
         = link_to content.content_name, "http://#{content.prefix+content.content_url}"
         (#{link_to "Review", review_path(content.review_id)})
 
