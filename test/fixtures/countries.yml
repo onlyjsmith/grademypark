@@ -3,9 +3,9 @@
 one:
   long_name: MyString
   short_name: MyString
-  code_3: 1
+  iso_3: 1
 
 two:
   long_name: MyString
   short_name: MyString
-  code_3: 1
+  iso_3: 1
