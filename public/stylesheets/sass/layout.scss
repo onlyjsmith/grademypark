@@ -188,9 +188,9 @@ h1 a:hover {
 form.rating_ballot {
   input#rating_submit { display: none; }
   input.rating_button { display: none; }
-  label.rating { cursor: pointer; display: block; height: 20px; width: 20px; float: left; }
+  label.rating { cursor: pointer; display: block; height: 30px; width: 30px; float: left; }
   label.rating span { display: none; }
-  label.rating { background-image: url(../images/star-dim.png); }
-  label.rating.bright { background-image: url(../images/star-bright.png); }
-  label.rating.glow { background-image: url(../images/star-glow.png); }
+  label.rating { background-image: url(../images/icons/star.png); }
+  label.rating.bright { background-image: url(../images/star_fill_orange.png); }
+  label.rating.glow { background-image: url(../images/star_fill.png); }
 }
